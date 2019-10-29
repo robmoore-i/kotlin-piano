@@ -9,15 +9,10 @@ class PianoSample(private val audioFile: File) {
     fun play() {
         withOpenClip { clip ->
             val clipLineListener = ClipLineListener()
-            val playbackLock: Object = clipLineListener.playbackLock() as Object;
+            val playbackLock: PlaybackLock = clipLineListener.playbackLock()
             clip.addLineListener(clipLineListener)
             clip.start()
-            while (!clipLineListener.isCompleted) {
-                try {
-                    playbackLock.wait()
-                } catch (ignored: IllegalMonitorStateException) {
-                }
-            }
+            playbackLock.blockUntil { clipLineListener.isCompleted }
         }
     }
 

@@ -4,7 +4,7 @@ import javax.sound.sampled.LineEvent;
 import javax.sound.sampled.LineListener;
 
 class ClipLineListener implements LineListener {
-    private Object lock;
+    private PlaybackLock lock;
     private boolean completed = false;
 
     @Override
@@ -12,7 +12,7 @@ class ClipLineListener implements LineListener {
         LineEvent.Type lineEventType = event.getType();
         if (lineEventType == LineEvent.Type.STOP) {
             completed = true;
-            lock.notifyAll();
+            lock.complete();
         }
     }
 
@@ -20,8 +20,8 @@ class ClipLineListener implements LineListener {
         return completed;
     }
 
-    public java.lang.Object playbackLock() {
-        Object lock = new Object();
+    public PlaybackLock playbackLock() {
+        PlaybackLock lock = new PlaybackLock();
         this.lock = lock;
         return lock;
     }

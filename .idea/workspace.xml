@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7a598051-dc8b-4c8f-a840-1e5b8c959ced" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/PianoSample.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/PianoSampleFactory.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="7a598051-dc8b-4c8f-a840-1e5b8c959ced" name="Default Changelist" comment="Create a dedicated object for use as a playback lock, which is compatible in Kotlin too, and is basically just acting as an interface to java concurrency primitives">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/PlaybackLock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/ClipLineListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/ClipLineListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/PianoSample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/PianoSampleFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/PianoSample.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/PianoSample.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -122,8 +117,16 @@
       <workItem from="1572269251626" duration="700000" />
       <workItem from="1572270056814" duration="7754000" />
       <workItem from="1572346164032" duration="1949000" />
-      <workItem from="1572348383983" duration="1249000" />
+      <workItem from="1572348383983" duration="2398000" />
     </task>
+    <task id="LOCAL-00001" summary="Converted a couple of classes to Kotlin. Use a dedicated Object as the lock.">
+      <created>1572349670247</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1572349670247</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +142,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Converted a couple of classes to Kotlin. Use a dedicated Object as the lock." />
+    <MESSAGE value="Create a dedicated object for use as a playback lock, which is compatible in Kotlin too, and is basically just acting as an interface to java concurrency primitives" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create a dedicated object for use as a playback lock, which is compatible in Kotlin too, and is basically just acting as an interface to java concurrency primitives" />
   </component>
   <component name="masterDetails">
     <states>
