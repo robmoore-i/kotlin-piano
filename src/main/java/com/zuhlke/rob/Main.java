@@ -1,11 +1,9 @@
 package com.zuhlke.rob;
 
-import javax.sound.sampled.*;
 import java.io.File;
-import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
+    public static void main(String[] args) {
         String pianoSamplesPath = "/Users/romo/IdeaProjects/sounds/piano-samples/iowa/";
         PianoSampleFactory pianoSampleFactory = new PianoSampleFactory(new File(pianoSamplesPath));
 

@@ -1,15 +1,9 @@
-package com.zuhlke.rob;
+package com.zuhlke.rob
 
-import java.io.File;
+import java.io.File
 
-public class PianoSampleFactory {
-    private final File pianoSamplesDirectory;
-
-    public PianoSampleFactory(File pianoSamplesDirectory) {
-        this.pianoSamplesDirectory = pianoSamplesDirectory;
-    }
-
-    public PianoSample create(String noteSpecification) {
-        return new PianoSample(new File(pianoSamplesDirectory, noteSpecification + ".aiff"));
+class PianoSampleFactory(private val pianoSamplesDirectory: File) {
+    fun create(noteSpecification: String): PianoSample {
+        return PianoSample(File(pianoSamplesDirectory, "$noteSpecification.aiff"))
     }
 }
