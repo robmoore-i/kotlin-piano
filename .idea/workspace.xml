@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7a598051-dc8b-4c8f-a840-1e5b8c959ced" name="Default Changelist" comment="Create a dedicated object for use as a playback lock, which is compatible in Kotlin too, and is basically just acting as an interface to java concurrency primitives">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/PlaybackLock.java" afterDir="false" />
+    <list default="true" id="7a598051-dc8b-4c8f-a840-1e5b8c959ced" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/iowa/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/integration/PlayClipTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/ClipLineListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/ClipLineListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/PianoSample.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/PianoSample.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piano-samples/download-piano-samples.py" beforeDir="false" afterPath="$PROJECT_DIR$/piano-samples/download-piano-samples.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,6 +29,7 @@
       <list>
         <option value="Python Script" />
         <option value="Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -62,6 +65,9 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.zuhlke.rob" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
       <recent name="com.zuhlke.rob" />
     </key>
@@ -84,7 +90,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.PlayClipTest.canPlay_ff3G">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.zuhlke.rob.Main" />
       <module name="sounds.main" />
@@ -98,8 +104,50 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PlayClipTest.a" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;integration.PlayClipTest.a&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="PlayClipTest.canPlay_ff3G" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;integration.PlayClipTest.canPlay_ff3G&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.PlayClipTest.canPlay_ff3G" />
+        <item itemvalue="Gradle.PlayClipTest.a" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -117,7 +165,7 @@
       <workItem from="1572269251626" duration="700000" />
       <workItem from="1572270056814" duration="7754000" />
       <workItem from="1572346164032" duration="1949000" />
-      <workItem from="1572348383983" duration="2398000" />
+      <workItem from="1572348383983" duration="3118000" />
     </task>
     <task id="LOCAL-00001" summary="Converted a couple of classes to Kotlin. Use a dedicated Object as the lock.">
       <created>1572349670247</created>
@@ -126,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572349670247</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Create a dedicated object for use as a playback lock, which is compatible in Kotlin too, and is basically just acting as an interface to java concurrency primitives">
+      <created>1572350835243</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1572350835243</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

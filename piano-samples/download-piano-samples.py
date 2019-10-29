@@ -57,4 +57,4 @@ def download_all_piano_samples(target_folder):
 
 # To download all the samples, on Rob's Zuhlke Mac, required around 60 minutes.
 if __name__ == "__main__":
-    download_all_piano_samples("iowa")
+    download_all_piano_samples("../src/main/resources/iowa")
