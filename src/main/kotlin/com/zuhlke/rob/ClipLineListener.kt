@@ -1,28 +1,22 @@
-package com.zuhlke.rob;
+package com.zuhlke.rob
 
-import javax.sound.sampled.LineEvent;
-import javax.sound.sampled.LineListener;
+import javax.sound.sampled.LineEvent
+import javax.sound.sampled.LineListener
 
-class ClipLineListener implements LineListener {
-    private PlaybackLock lock;
-    private boolean completed = false;
+internal class ClipLineListener : LineListener {
+    private var lock: PlaybackLock = PlaybackLock()
+    var isCompleted = false
+        private set
 
-    @Override
-    public void update(LineEvent event) {
-        LineEvent.Type lineEventType = event.getType();
-        if (lineEventType == LineEvent.Type.STOP) {
-            completed = true;
-            lock.complete();
+    override fun update(event: LineEvent) {
+        val lineEventType = event.type
+        if (lineEventType === LineEvent.Type.STOP) {
+            isCompleted = true
+            lock.complete()
         }
     }
 
-    public boolean isCompleted() {
-        return completed;
-    }
-
-    public PlaybackLock playbackLock() {
-        PlaybackLock lock = new PlaybackLock();
-        this.lock = lock;
-        return lock;
+    fun playbackLock(): PlaybackLock {
+        return lock
     }
 }

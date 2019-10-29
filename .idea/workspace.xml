@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a598051-dc8b-4c8f-a840-1e5b8c959ced" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/iowa/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/integration/PlayClipTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/ClipLineListener.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piano-samples/download-piano-samples.py" beforeDir="false" afterPath="$PROJECT_DIR$/piano-samples/download-piano-samples.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/ClipLineListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/PianoSample.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/PianoSample.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/PianoSampleFactory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/PianoSampleFactory.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,17 +62,20 @@
     <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateTestDialog.RecentsKey">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="com.zuhlke.rob" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources" />
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.zuhlke.rob" />
     </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
       <recent name="com.zuhlke.rob" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.zuhlke.rob" />
@@ -90,7 +93,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.PlayClipTest.canPlay_ff3G">
+  <component name="RunManager" selected="Gradle.PlayClipTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.zuhlke.rob.Main" />
       <module name="sounds.main" />
@@ -103,6 +106,26 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="PlayClipTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;integration.PlayClipTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
     </configuration>
     <configuration name="PlayClipTest.a" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -146,6 +169,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.PlayClipTest" />
         <item itemvalue="Gradle.PlayClipTest.canPlay_ff3G" />
         <item itemvalue="Gradle.PlayClipTest.a" />
         <item itemvalue="Application.Main" />
@@ -165,7 +189,7 @@
       <workItem from="1572269251626" duration="700000" />
       <workItem from="1572270056814" duration="7754000" />
       <workItem from="1572346164032" duration="1949000" />
-      <workItem from="1572348383983" duration="3118000" />
+      <workItem from="1572348383983" duration="3492000" />
     </task>
     <task id="LOCAL-00001" summary="Converted a couple of classes to Kotlin. Use a dedicated Object as the lock.">
       <created>1572349670247</created>
@@ -181,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572350835243</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Move samples into resources/ folder. Move Main into an integration test called &quot;PlayClipTest&quot;, and load from a relative resource path.">
+      <created>1572351603298</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1572351603298</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,7 +232,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Converted a couple of classes to Kotlin. Use a dedicated Object as the lock." />
     <MESSAGE value="Create a dedicated object for use as a playback lock, which is compatible in Kotlin too, and is basically just acting as an interface to java concurrency primitives" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create a dedicated object for use as a playback lock, which is compatible in Kotlin too, and is basically just acting as an interface to java concurrency primitives" />
+    <MESSAGE value="Move samples into resources/ folder. Move Main into an integration test called &quot;PlayClipTest&quot;, and load from a relative resource path." />
+    <option name="LAST_COMMIT_MESSAGE" value="Move samples into resources/ folder. Move Main into an integration test called &quot;PlayClipTest&quot;, and load from a relative resource path." />
   </component>
   <component name="masterDetails">
     <states>
