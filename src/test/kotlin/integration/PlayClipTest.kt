@@ -19,7 +19,6 @@ class PlayClipTest {
     }
 
     @Test
-    @Ignore
     fun canPlayFirstSecondOf_ff3C() {
         val pianoSamplesFolder = File(javaClass.classLoader.getResource("iowa")!!.toURI())
         val pianoSampleFactory = PianoSampleFactory(pianoSamplesFolder)

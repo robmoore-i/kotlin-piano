@@ -4,7 +4,10 @@ import java.util.concurrent.Callable;
 
 public class PlaybackLock {
     public void complete() {
-        notifyAll();
+        try {
+            notifyAll();
+        } catch (IllegalMonitorStateException ignored) {
+        }
     }
 
     public void blockUntil(Callable<Boolean> completionCheck) {

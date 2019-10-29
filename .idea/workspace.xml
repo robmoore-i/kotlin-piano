@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a598051-dc8b-4c8f-a840-1e5b8c959ced" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/BaseClipPlayer.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/ClipPlayer.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/CutoffClipPlayer.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/ClipLineListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/FullClipPlayer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/PianoSample.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/PianoSample.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/PlaybackLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/PlaybackLock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/CutoffClipPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/CutoffClipPlayer.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/integration/PlayClipTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/integration/PlayClipTest.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -193,7 +190,7 @@
       <workItem from="1572269251626" duration="700000" />
       <workItem from="1572270056814" duration="7754000" />
       <workItem from="1572346164032" duration="1949000" />
-      <workItem from="1572348383983" duration="6161000" />
+      <workItem from="1572348383983" duration="6990000" />
     </task>
     <task id="LOCAL-00001" summary="Converted a couple of classes to Kotlin. Use a dedicated Object as the lock.">
       <created>1572349670247</created>
@@ -230,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572352295097</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Created ClipPlayer interface which extends the LineListener interface. Created a BaseClipPlayer abstract class, which provides logging and a 'complete' method for releasing the lock. Created second implementation of ClipPlayer, based on the BaseClipPlayer, which is intended to stop the playback after a given duration has elapsed. Current called the CutoffClipPlayer.">
+      <created>1572354788870</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1572354788870</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,7 +257,8 @@
     <MESSAGE value="Move samples into resources/ folder. Move Main into an integration test called &quot;PlayClipTest&quot;, and load from a relative resource path." />
     <MESSAGE value="Converted ClipLineListener to Kotlin. Moved Kotlin files into kotlin folder and left java files in java folder. Deleted Main class, now that I'm executing from the integration test." />
     <MESSAGE value="Update README with Al's insight" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update README with Al's insight" />
+    <MESSAGE value="Created ClipPlayer interface which extends the LineListener interface. Created a BaseClipPlayer abstract class, which provides logging and a 'complete' method for releasing the lock. Created second implementation of ClipPlayer, based on the BaseClipPlayer, which is intended to stop the playback after a given duration has elapsed. Current called the CutoffClipPlayer." />
+    <option name="LAST_COMMIT_MESSAGE" value="Created ClipPlayer interface which extends the LineListener interface. Created a BaseClipPlayer abstract class, which provides logging and a 'complete' method for releasing the lock. Created second implementation of ClipPlayer, based on the BaseClipPlayer, which is intended to stop the playback after a given duration has elapsed. Current called the CutoffClipPlayer." />
   </component>
   <component name="masterDetails">
     <states>
