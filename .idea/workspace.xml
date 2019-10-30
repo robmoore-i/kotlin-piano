@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a598051-dc8b-4c8f-a840-1e5b8c959ced" name="Default Changelist" comment="packaging">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/logger/Logger.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/AudioClip.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/sample/PianoNoteSampleTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/PianoSample.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/PianoNoteSample.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/BaseClipPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/BaseClipPlayer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/PianoNoteSample.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/PianoNoteSample.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/PianoSampleFactory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/PianoSampleFactory.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,6 +40,7 @@
       <list>
         <option value="Python Script" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
         <option value="Kotlin File" />
       </list>
     </option>
@@ -46,18 +51,15 @@
   <component name="MacroExpansionManager">
     <option name="directoryName" value="uraXBVGF" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-522" />
-    <option name="y" value="-1417" />
-    <option name="width" value="2424" />
-    <option name="height" value="1293" />
-  </component>
   <component name="ProjectId" id="1SsNWrPEUOOUggVJ4qtDwlt9UpE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="extract.method.default.visibility" value="private" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/sample" />
     <property name="node.js.detected.package.jscs" value="true" />
     <property name="node.js.path.for.package.jscs" value="project" />
     <property name="node.js.selected.package.jscs" value="" />
@@ -78,19 +80,20 @@
       <recent name="com.zuhlke.rob" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.zuhlke.rob.sample" />
       <recent name="com.zuhlke.rob" />
     </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
       <recent name="com.zuhlke.rob" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources" />
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
     </key>
     <key name="KotlinExtractInterfaceDialog.RECENT_KEYS">
       <recent name="com.zuhlke.rob" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.zuhlke.rob.sample" />
@@ -111,7 +114,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.PianoNoteTest">
+  <component name="RunManager" selected="Gradle.PlayClipTest.canPlay_ff3G">
     <configuration name="PianoNoteTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -214,11 +217,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.PianoNoteTest" />
+        <item itemvalue="Gradle.PlayClipTest.canPlay_ff3G" />
         <item itemvalue="Gradle.PlayClipTest" />
+        <item itemvalue="Gradle.PianoNoteTest" />
         <item itemvalue="Gradle.PianoNoteTest.plays for number of seconds equal to number of beats divided by beats per minute divided by seconds per minute" />
         <item itemvalue="Gradle.PianoNoteTest.plays for number of seconds equal to number of beats divided by beats per second" />
-        <item itemvalue="Gradle.PlayClipTest.canPlay_ff3G" />
       </list>
     </recent_temporary>
   </component>

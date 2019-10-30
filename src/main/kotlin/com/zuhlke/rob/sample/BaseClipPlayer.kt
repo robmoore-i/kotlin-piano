@@ -1,8 +1,10 @@
 package com.zuhlke.rob.sample
 
+import com.zuhlke.rob.logger.Logger
 import javax.sound.sampled.LineEvent
 
 abstract class BaseClipPlayer : ClipPlayer {
+    private val logger: Logger = Logger(this.javaClass.name)
     private var lock: PlaybackLock = PlaybackLock()
     private var completed = false
 
@@ -18,19 +20,19 @@ abstract class BaseClipPlayer : ClipPlayer {
         val lineEventType = event.type
         when {
             lineEventType === LineEvent.Type.OPEN -> {
-                println("OPEN")
+                logger.v("OPEN")
                 onClipOpen()
             }
             lineEventType === LineEvent.Type.CLOSE -> {
-                println("CLOSE")
+                logger.v("CLOSE")
                 onClipClose()
             }
             lineEventType === LineEvent.Type.START -> {
-                println("START")
+                logger.v("START")
                 onClipStart()
             }
             lineEventType === LineEvent.Type.STOP -> {
-                println("STOP")
+                logger.v("STOP")
                 onClipStop()
             }
         }

@@ -1,35 +1,22 @@
 package com.zuhlke.rob.sample
 
-import java.io.File
 import java.time.Duration
-import javax.sound.sampled.AudioSystem
-import javax.sound.sampled.Clip
-import javax.sound.sampled.DataLine
 
-class PianoNoteSample(private val audioFile: File) : Sample {
+class PianoNoteSample(private val clip: AudioClip) : Sample {
     override fun play() {
-        playSample(FullClipPlayer())
+        playWith(FullClipPlayer())
     }
 
     override fun play(duration: Duration) {
-        playSample(CutoffClipPlayer(duration))
+        playWith(CutoffClipPlayer(duration))
     }
 
-    private fun playSample(clipPlayer: ClipPlayer) {
-        withClip(clipPlayer) { clip ->
-            val playbackLock: PlaybackLock = clipPlayer.playbackLock()
-            clip.start()
-            playbackLock.blockUntil { clipPlayer.isCompleted() }
-        }
-    }
-
-    private fun withClip(clipPlayer: ClipPlayer, function: (clip: Clip) -> Unit) {
-        val audioInputStream = AudioSystem.getAudioInputStream(audioFile)
-        val clip = AudioSystem.getLine(DataLine.Info(Clip::class.java, audioInputStream.format)) as Clip
-        clip.addLineListener(clipPlayer)
-        clip.open(audioInputStream)
-        function.invoke(clip)
+    private fun playWith(clipPlayer: ClipPlayer) {
+        clip.addPlayer(clipPlayer)
+        clip.open()
+        val playbackLock: PlaybackLock = clipPlayer.playbackLock()
+        clip.start()
+        playbackLock.blockUntil { clipPlayer.isCompleted() }
         clip.close()
-        audioInputStream.close()
     }
 }
