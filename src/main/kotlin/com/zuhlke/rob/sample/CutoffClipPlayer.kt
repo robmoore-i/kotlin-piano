@@ -4,7 +4,7 @@ import java.time.Duration
 import java.util.*
 import kotlin.concurrent.schedule
 
-class CutoffClipPlayer(private val duration: Duration) : BaseClipPlayer() {
+class CutoffClipPlayer(private val duration: Duration) : BaseClipPlayer(PlaybackLock()) {
     override fun onClipStart() {
         Timer().schedule(duration.toMillis()) {
             complete()

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7a598051-dc8b-4c8f-a840-1e5b8c959ced" name="Default Changelist" comment="packaging">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/logger/Logger.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/AudioClip.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/sample/PianoNoteSampleTest.kt" afterDir="false" />
+    <list default="true" id="7a598051-dc8b-4c8f-a840-1e5b8c959ced" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/sample/TestClipPlayer.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/BaseClipPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/BaseClipPlayer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/CutoffClipPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/CutoffClipPlayer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/FullClipPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/FullClipPlayer.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/PianoNoteSample.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/PianoNoteSample.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/PianoSampleFactory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/PianoSampleFactory.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/sample/PianoNoteSampleTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/sample/PianoNoteSampleTest.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,8 +72,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
-      <recent name="com.zuhlke.rob.note" />
       <recent name="com.zuhlke.rob.sample" />
+      <recent name="com.zuhlke.rob.note" />
       <recent name="com.zuhlke.rob" />
     </key>
     <key name="CreateKotlinClassDialog.RecentsKey">
@@ -114,53 +114,53 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.PlayClipTest.canPlay_ff3G">
+  <component name="RunManager" selected="Gradle.PianoNoteSampleTest">
+    <configuration name="PianoNoteSampleTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.zuhlke.rob.sample.PianoNoteSampleTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="PianoNoteSampleTest.it blocks the current thread while the sample is playing" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.zuhlke.rob.sample.PianoNoteSampleTest.it blocks the current thread while the sample is playing&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="PianoNoteTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="--tests &quot;com.zuhlke.rob.PianoNoteTest&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="PianoNoteTest.plays for number of seconds equal to number of beats divided by beats per minute divided by seconds per minute" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.zuhlke.rob.PianoNoteTest.plays for number of seconds equal to number of beats divided by beats per minute divided by seconds per minute&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="PianoNoteTest.plays for number of seconds equal to number of beats divided by beats per second" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.zuhlke.rob.PianoNoteTest.plays for number of seconds equal to number of beats divided by beats per second&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -217,11 +217,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.PianoNoteSampleTest" />
+        <item itemvalue="Gradle.PianoNoteSampleTest.it blocks the current thread while the sample is playing" />
         <item itemvalue="Gradle.PlayClipTest.canPlay_ff3G" />
         <item itemvalue="Gradle.PlayClipTest" />
         <item itemvalue="Gradle.PianoNoteTest" />
-        <item itemvalue="Gradle.PianoNoteTest.plays for number of seconds equal to number of beats divided by beats per minute divided by seconds per minute" />
-        <item itemvalue="Gradle.PianoNoteTest.plays for number of seconds equal to number of beats divided by beats per second" />
       </list>
     </recent_temporary>
   </component>
@@ -319,7 +319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572439289793</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Refactor out an AudioClip object, and create a Logger object. Also define some tests for the concurrency stuff.">
+      <created>1572455641578</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1572455641578</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,7 +357,8 @@
     <MESSAGE value="PianoNote::play calls underlying sample" />
     <MESSAGE value="rename" />
     <MESSAGE value="packaging" />
-    <option name="LAST_COMMIT_MESSAGE" value="packaging" />
+    <MESSAGE value="Refactor out an AudioClip object, and create a Logger object. Also define some tests for the concurrency stuff." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor out an AudioClip object, and create a Logger object. Also define some tests for the concurrency stuff." />
   </component>
   <component name="masterDetails">
     <states>

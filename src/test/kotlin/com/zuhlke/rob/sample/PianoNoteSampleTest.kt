@@ -1,17 +1,18 @@
 package com.zuhlke.rob.sample
 
+import io.mockk.mockk
+import io.mockk.verify
 import org.junit.Test
 
 class PianoNoteSampleTest {
     @Test
-    fun `it blocks the current thread while the sample is playing`() {
-    }
+    fun `when the sample is played, the current thread is blocked`() {
+        val pianoNoteSample = PianoNoteSample(mockk("audio clip", relaxed = true))
+        val mockPlaybackLock = mockk<PlaybackLock>("playback lock", relaxed = true)
+        val stubClipPlayer = TestClipPlayer(mockPlaybackLock)
 
-    @Test
-    fun `it unblocks the current thread when the sample is complete`() {
-    }
+        pianoNoteSample.playWith(stubClipPlayer)
 
-    @Test
-    fun `the sample completes after the specified playback duration`() {
+        verify { mockPlaybackLock.blockUntil(any()) }
     }
 }

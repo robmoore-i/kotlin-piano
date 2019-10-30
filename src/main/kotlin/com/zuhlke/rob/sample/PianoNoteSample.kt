@@ -2,7 +2,7 @@ package com.zuhlke.rob.sample
 
 import java.time.Duration
 
-class PianoNoteSample(private val clip: AudioClip) : Sample {
+class PianoNoteSample(private val audioClip: AudioClip) : Sample {
     override fun play() {
         playWith(FullClipPlayer())
     }
@@ -11,12 +11,12 @@ class PianoNoteSample(private val clip: AudioClip) : Sample {
         playWith(CutoffClipPlayer(duration))
     }
 
-    private fun playWith(clipPlayer: ClipPlayer) {
-        clip.addPlayer(clipPlayer)
-        clip.open()
+    fun playWith(clipPlayer: ClipPlayer) {
+        audioClip.addPlayer(clipPlayer)
+        audioClip.open()
         val playbackLock: PlaybackLock = clipPlayer.playbackLock()
-        clip.start()
+        audioClip.start()
         playbackLock.blockUntil { clipPlayer.isCompleted() }
-        clip.close()
+        audioClip.close()
     }
 }

@@ -3,9 +3,9 @@ package com.zuhlke.rob.sample
 import com.zuhlke.rob.logger.Logger
 import javax.sound.sampled.LineEvent
 
-abstract class BaseClipPlayer : ClipPlayer {
+abstract class BaseClipPlayer(playbackLock: PlaybackLock) : ClipPlayer {
     private val logger: Logger = Logger(this.javaClass.name)
-    private var lock: PlaybackLock = PlaybackLock()
+    private var lock: PlaybackLock = playbackLock
     private var completed = false
 
     override fun isCompleted(): Boolean {
