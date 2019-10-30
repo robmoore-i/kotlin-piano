@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a598051-dc8b-4c8f-a840-1e5b8c959ced" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/PianoNote.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/Sample.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/PianoNoteTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/PianoSample.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/PianoSample.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/PianoNoteTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/PianoNoteTest.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +94,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.PlayClipTest">
+  <component name="RunManager" selected="Gradle.PianoNoteTest">
     <configuration name="PianoNoteTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -202,8 +197,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.PlayClipTest" />
         <item itemvalue="Gradle.PianoNoteTest" />
+        <item itemvalue="Gradle.PlayClipTest" />
         <item itemvalue="Gradle.PianoNoteTest.plays for number of seconds equal to number of beats divided by beats per minute divided by seconds per minute" />
         <item itemvalue="Gradle.PianoNoteTest.plays for number of seconds equal to number of beats divided by beats per second" />
         <item itemvalue="Gradle.PlayClipTest.canPlay_ff3G" />
@@ -225,7 +220,7 @@
       <workItem from="1572346164032" duration="1949000" />
       <workItem from="1572348383983" duration="10254000" />
       <workItem from="1572371149412" duration="679000" />
-      <workItem from="1572437371662" duration="952000" />
+      <workItem from="1572437371662" duration="1483000" />
     </task>
     <task id="LOCAL-00001" summary="Converted a couple of classes to Kotlin. Use a dedicated Object as the lock.">
       <created>1572349670247</created>
@@ -276,7 +271,21 @@
       <option name="project" value="LOCAL" />
       <updated>1572358588603</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Create PianoNote class.">
+      <created>1572438353374</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1572438353374</updated>
+    </task>
+    <task id="LOCAL-00009" summary="PianoNote::play calls underlying sample">
+      <created>1572438915742</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1572438915742</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,7 +312,9 @@
     <MESSAGE value="Update README with Al's insight" />
     <MESSAGE value="Created ClipPlayer interface which extends the LineListener interface. Created a BaseClipPlayer abstract class, which provides logging and a 'complete' method for releasing the lock. Created second implementation of ClipPlayer, based on the BaseClipPlayer, which is intended to stop the playback after a given duration has elapsed. Current called the CutoffClipPlayer." />
     <MESSAGE value="Catch IllegalMonitorStateException in the PlaybackLock's complete method (notifyAll). Implement the CutoffClipPlayer, by adding a timer which schedules the call to complete." />
-    <option name="LAST_COMMIT_MESSAGE" value="Catch IllegalMonitorStateException in the PlaybackLock's complete method (notifyAll). Implement the CutoffClipPlayer, by adding a timer which schedules the call to complete." />
+    <MESSAGE value="Create PianoNote class." />
+    <MESSAGE value="PianoNote::play calls underlying sample" />
+    <option name="LAST_COMMIT_MESSAGE" value="PianoNote::play calls underlying sample" />
   </component>
   <component name="masterDetails">
     <states>

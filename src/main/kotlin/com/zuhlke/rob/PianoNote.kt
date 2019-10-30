@@ -8,4 +8,8 @@ class PianoNote(private val sample: Sample, private val numberOfBeats: Int, priv
         val numberOfSeconds = numberOfBeats / (bpm / 60)
         return Duration.of(numberOfSeconds.toLong(), ChronoUnit.SECONDS)
     }
+
+    fun play() {
+        sample.play(duration())
+    }
 }
