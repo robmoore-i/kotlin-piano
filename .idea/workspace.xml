@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7a598051-dc8b-4c8f-a840-1e5b8c959ced" name="Default Changelist" comment="">
+    <list default="true" id="7a598051-dc8b-4c8f-a840-1e5b8c959ced" name="Default Changelist" comment="packaging">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/PianoNoteTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/PianoNoteTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/PlaybackLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/sample/PlaybackLock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/BaseClipPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/BaseClipPlayer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/ClipPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/ClipPlayer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/CutoffClipPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/CutoffClipPlayer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/FullClipPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/FullClipPlayer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/PianoNote.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/note/PianoNote.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/PianoSample.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/PianoSample.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/PianoSampleFactory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/PianoSampleFactory.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/Sample.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/Sample.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/PianoNoteTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/note/PianoNoteTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/integration/PlayClipTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/integration/PlayClipTest.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,6 +69,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.zuhlke.rob.note" />
+      <recent name="com.zuhlke.rob.sample" />
       <recent name="com.zuhlke.rob" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
@@ -78,6 +90,9 @@
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.zuhlke.rob.sample" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
@@ -221,7 +236,7 @@
       <workItem from="1572346164032" duration="1949000" />
       <workItem from="1572348383983" duration="10254000" />
       <workItem from="1572371149412" duration="679000" />
-      <workItem from="1572437371662" duration="1821000" />
+      <workItem from="1572437371662" duration="1969000" />
     </task>
     <task id="LOCAL-00001" summary="Converted a couple of classes to Kotlin. Use a dedicated Object as the lock.">
       <created>1572349670247</created>
@@ -293,7 +308,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572438937757</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="rename">
+      <created>1572439289793</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1572439289793</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,7 +344,9 @@
     <MESSAGE value="Catch IllegalMonitorStateException in the PlaybackLock's complete method (notifyAll). Implement the CutoffClipPlayer, by adding a timer which schedules the call to complete." />
     <MESSAGE value="Create PianoNote class." />
     <MESSAGE value="PianoNote::play calls underlying sample" />
-    <option name="LAST_COMMIT_MESSAGE" value="PianoNote::play calls underlying sample" />
+    <MESSAGE value="rename" />
+    <MESSAGE value="packaging" />
+    <option name="LAST_COMMIT_MESSAGE" value="packaging" />
   </component>
   <component name="masterDetails">
     <states>

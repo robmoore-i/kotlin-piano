@@ -1,5 +1,6 @@
-package com.zuhlke.rob
+package com.zuhlke.rob.note
 
+import com.zuhlke.rob.sample.Sample
 import io.mockk.mockk
 import io.mockk.verify
 import org.hamcrest.CoreMatchers.equalTo

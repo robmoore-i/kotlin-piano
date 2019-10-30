@@ -1,4 +1,4 @@
-package com.zuhlke.rob
+package com.zuhlke.rob.sample
 
 import java.io.File
 import java.time.Duration

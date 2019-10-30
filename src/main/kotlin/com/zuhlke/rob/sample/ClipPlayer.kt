@@ -1,4 +1,4 @@
-package com.zuhlke.rob
+package com.zuhlke.rob.sample
 
 import javax.sound.sampled.LineListener
 

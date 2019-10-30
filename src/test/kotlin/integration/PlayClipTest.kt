@@ -1,7 +1,6 @@
 package integration
 
-import com.zuhlke.rob.PianoSampleFactory
-import org.junit.Ignore
+import com.zuhlke.rob.sample.PianoSampleFactory
 import org.junit.Test
 import java.io.File
 import java.time.Duration

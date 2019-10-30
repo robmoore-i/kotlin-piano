@@ -1,4 +1,4 @@
-package com.zuhlke.rob
+package com.zuhlke.rob.sample
 
 import java.time.Duration
 import java.util.*
@@ -12,6 +12,6 @@ class CutoffClipPlayer(private val duration: Duration) : BaseClipPlayer() {
     }
 
     override fun onClipStop() {
-        complete();
+        complete()
     }
 }

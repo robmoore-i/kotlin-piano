@@ -1,5 +1,6 @@
-package com.zuhlke.rob
+package com.zuhlke.rob.note
 
+import com.zuhlke.rob.sample.Sample
 import java.time.Duration
 import java.time.temporal.ChronoUnit
 

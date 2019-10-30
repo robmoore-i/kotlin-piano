@@ -1,4 +1,4 @@
-package com.zuhlke.rob
+package com.zuhlke.rob.sample
 
 import javax.sound.sampled.LineEvent
 
@@ -7,7 +7,7 @@ abstract class BaseClipPlayer : ClipPlayer {
     private var completed = false
 
     override fun isCompleted(): Boolean {
-        return completed;
+        return completed
     }
 
     override fun playbackLock(): PlaybackLock {
