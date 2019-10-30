@@ -6,7 +6,7 @@ import javax.sound.sampled.AudioSystem
 import javax.sound.sampled.Clip
 import javax.sound.sampled.DataLine
 
-class PianoSample(private val audioFile: File) : Sample {
+class PianoNoteSample(private val audioFile: File) : Sample {
     override fun play() {
         playSample(FullClipPlayer())
     }
