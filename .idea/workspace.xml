@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a598051-dc8b-4c8f-a840-1e5b8c959ced" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/PianoNote.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/Sample.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/PianoNoteTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/PlaybackLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/PlaybackLock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/CutoffClipPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/CutoffClipPlayer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/integration/PlayClipTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/integration/PlayClipTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/PianoSample.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/PianoSample.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,6 +65,9 @@
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="com.zuhlke.rob" />
     </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.zuhlke.rob" />
+    </key>
     <key name="CreateKotlinClassDialog.RecentsKey">
       <recent name="com.zuhlke.rob" />
     </key>
@@ -72,14 +77,14 @@
     <key name="MoveInnerDialog.RECENTS_KEY">
       <recent name="com.zuhlke.rob" />
     </key>
+    <key name="KotlinExtractInterfaceDialog.RECENT_KEYS">
+      <recent name="com.zuhlke.rob" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.zuhlke.rob" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -95,25 +100,12 @@
     </option>
   </component>
   <component name="RunManager" selected="Gradle.PlayClipTest">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.zuhlke.rob.Main" />
-      <module name="sounds.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.zuhlke.rob.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PlayClipTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PianoNoteTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;integration.PlayClipTest&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.zuhlke.rob.PianoNoteTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -128,12 +120,52 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="PlayClipTest.a" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PianoNoteTest.plays for number of seconds equal to number of beats divided by beats per minute divided by seconds per minute" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;integration.PlayClipTest.a&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.zuhlke.rob.PianoNoteTest.plays for number of seconds equal to number of beats divided by beats per minute divided by seconds per minute&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="PianoNoteTest.plays for number of seconds equal to number of beats divided by beats per second" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.zuhlke.rob.PianoNoteTest.plays for number of seconds equal to number of beats divided by beats per second&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="PlayClipTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;integration.PlayClipTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -171,9 +203,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.PlayClipTest" />
+        <item itemvalue="Gradle.PianoNoteTest" />
+        <item itemvalue="Gradle.PianoNoteTest.plays for number of seconds equal to number of beats divided by beats per minute divided by seconds per minute" />
+        <item itemvalue="Gradle.PianoNoteTest.plays for number of seconds equal to number of beats divided by beats per second" />
         <item itemvalue="Gradle.PlayClipTest.canPlay_ff3G" />
-        <item itemvalue="Gradle.PlayClipTest.a" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -190,7 +223,9 @@
       <workItem from="1572269251626" duration="700000" />
       <workItem from="1572270056814" duration="7754000" />
       <workItem from="1572346164032" duration="1949000" />
-      <workItem from="1572348383983" duration="6990000" />
+      <workItem from="1572348383983" duration="10254000" />
+      <workItem from="1572371149412" duration="679000" />
+      <workItem from="1572437371662" duration="952000" />
     </task>
     <task id="LOCAL-00001" summary="Converted a couple of classes to Kotlin. Use a dedicated Object as the lock.">
       <created>1572349670247</created>
@@ -234,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572354788870</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Catch IllegalMonitorStateException in the PlaybackLock's complete method (notifyAll). Implement the CutoffClipPlayer, by adding a timer which schedules the call to complete.">
+      <created>1572358588603</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1572358588603</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,7 +287,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -258,7 +302,8 @@
     <MESSAGE value="Converted ClipLineListener to Kotlin. Moved Kotlin files into kotlin folder and left java files in java folder. Deleted Main class, now that I'm executing from the integration test." />
     <MESSAGE value="Update README with Al's insight" />
     <MESSAGE value="Created ClipPlayer interface which extends the LineListener interface. Created a BaseClipPlayer abstract class, which provides logging and a 'complete' method for releasing the lock. Created second implementation of ClipPlayer, based on the BaseClipPlayer, which is intended to stop the playback after a given duration has elapsed. Current called the CutoffClipPlayer." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created ClipPlayer interface which extends the LineListener interface. Created a BaseClipPlayer abstract class, which provides logging and a 'complete' method for releasing the lock. Created second implementation of ClipPlayer, based on the BaseClipPlayer, which is intended to stop the playback after a given duration has elapsed. Current called the CutoffClipPlayer." />
+    <MESSAGE value="Catch IllegalMonitorStateException in the PlaybackLock's complete method (notifyAll). Implement the CutoffClipPlayer, by adding a timer which schedules the call to complete." />
+    <option name="LAST_COMMIT_MESSAGE" value="Catch IllegalMonitorStateException in the PlaybackLock's complete method (notifyAll). Implement the CutoffClipPlayer, by adding a timer which schedules the call to complete." />
   </component>
   <component name="masterDetails">
     <states>

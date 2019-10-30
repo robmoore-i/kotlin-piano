@@ -6,16 +6,16 @@ import javax.sound.sampled.AudioSystem
 import javax.sound.sampled.Clip
 import javax.sound.sampled.DataLine
 
-class PianoSample(private val audioFile: File) {
-    fun play() {
-        playClip(FullClipPlayer())
+class PianoSample(private val audioFile: File) : Sample {
+    override fun play() {
+        playSample(FullClipPlayer())
     }
 
-    fun play(duration: Duration) {
-        playClip(CutoffClipPlayer(duration))
+    override fun play(duration: Duration) {
+        playSample(CutoffClipPlayer(duration))
     }
 
-    private fun playClip(clipPlayer: ClipPlayer) {
+    private fun playSample(clipPlayer: ClipPlayer) {
         withClip(clipPlayer) { clip ->
             val playbackLock: PlaybackLock = clipPlayer.playbackLock()
             clip.start()
