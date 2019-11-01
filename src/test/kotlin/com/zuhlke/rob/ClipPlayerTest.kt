@@ -7,30 +7,30 @@ import io.mockk.verify
 import org.junit.Before
 import org.junit.Test
 import javax.sound.sampled.LineEvent
-import javax.sound.sampled.LineListener
 
 class ClipPlayerTest {
-    private val mockPlaybackLock = mockk<PlaybackLock>(relaxed = true)
-    private val mockSample = mockk<Clip>(relaxed = true)
+    private val mockPlaybackLock = mockk<Lock>(relaxed = true)
+    private val mockClip = mockk<Clip>(relaxed = true)
 
     @Before
     fun setUp() {
-        clearMocks(mockPlaybackLock, mockSample)
+        clearMocks(mockPlaybackLock, mockClip)
     }
 
     @Test
     fun `when the clip starts it blocks on the playback lock`() {
-        val clipPlayer = ClipPlayer(mockPlaybackLock)
+        val clipPlayer = FullPlayer(mockPlaybackLock)
 
-        clipPlayer.play(mockSample)
+        clipPlayer.play(mockClip)
 
-        verify { mockPlaybackLock.block() }
+        verify { mockPlaybackLock.block(any()) }
     }
 
     @Test
     fun `when updated with stop event it releases the playback lock`() {
-        val clipPlayer = ClipPlayer(mockPlaybackLock)
+        val clipPlayer = FullPlayer(mockPlaybackLock)
 
+        clipPlayer.play(mockClip)
         clipPlayer.update(lineEvent(LineEvent.Type.STOP))
 
         verify { mockPlaybackLock.release() }
@@ -38,7 +38,7 @@ class ClipPlayerTest {
 
     @Test
     fun `when updated with a start event it does nothing`() {
-        val clipPlayer = ClipPlayer(mockPlaybackLock)
+        val clipPlayer = FullPlayer(mockPlaybackLock)
 
         clipPlayer.update(lineEvent(LineEvent.Type.START))
 
@@ -47,7 +47,7 @@ class ClipPlayerTest {
 
     @Test
     fun `when updated with a null event it does nothing`() {
-        val clipPlayer = ClipPlayer(mockPlaybackLock)
+        val clipPlayer = FullPlayer(mockPlaybackLock)
 
         clipPlayer.update(null)
 
@@ -56,21 +56,21 @@ class ClipPlayerTest {
 
     @Test
     fun `stops sample when stopped`() {
-        val clipPlayer = ClipPlayer(mockPlaybackLock)
+        val clipPlayer = FullPlayer(mockPlaybackLock)
 
-        clipPlayer.play(mockSample)
+        clipPlayer.play(mockClip)
         clipPlayer.update(lineEvent(LineEvent.Type.STOP))
 
-        verify { mockSample.stop() }
+        verify { mockClip.stop() }
     }
 
     @Test
     fun `starts sample when played using itself as the playback listener`() {
-        val clipPlayer = ClipPlayer(mockPlaybackLock)
+        val clipPlayer = FullPlayer(mockPlaybackLock)
 
-        clipPlayer.play(mockSample)
+        clipPlayer.play(mockClip)
 
-        verify { mockSample.startWithPlaybackListener(clipPlayer) }
+        verify { mockClip.startWithPlaybackListener(clipPlayer) }
     }
 
     private fun lineEvent(type: LineEvent.Type): LineEvent {
@@ -80,40 +80,3 @@ class ClipPlayerTest {
     }
 }
 
-interface Player : LineListener {
-    fun play(clip: Clip)
-}
-
-interface Clip {
-    fun startWithPlaybackListener(player: Player)
-    fun stop()
-}
-
-interface PlaybackLock {
-    fun block()
-    fun release()
-}
-
-class ClipPlayer(private val playbackLock: PlaybackLock) : Player {
-    private lateinit var clip: Clip
-
-    override fun update(event: LineEvent?) {
-        if (event == null) {
-            return
-        }
-        if (event.type == LineEvent.Type.STOP) {
-            onStop()
-        }
-    }
-
-    override fun play(clip: Clip) {
-        this.clip = clip
-        clip.startWithPlaybackListener(this)
-        playbackLock.block()
-    }
-
-    private fun onStop() {
-        clip.stop()
-        playbackLock.release()
-    }
-}
