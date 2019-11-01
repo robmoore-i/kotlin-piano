@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a598051-dc8b-4c8f-a840-1e5b8c959ced" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/sample/TestClipPlayer.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/ClipPlayerTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/SampleClipTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/BaseClipPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/BaseClipPlayer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/CutoffClipPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/CutoffClipPlayer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/FullClipPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/FullClipPlayer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/PianoNoteSample.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/sample/PianoNoteSample.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/sample/PianoNoteSampleTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/sample/PianoNoteSampleTest.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -114,13 +110,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.PianoNoteSampleTest">
-    <configuration name="PianoNoteSampleTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.SampleClipTest">
+    <configuration name="SampleClipTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.zuhlke.rob.sample.PianoNoteSampleTest&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.zuhlke.rob.SampleClipTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -135,12 +131,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="PianoNoteSampleTest.it blocks the current thread while the sample is playing" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="SampleClipTest.when sent an onStop message it releases the playback lock" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.zuhlke.rob.sample.PianoNoteSampleTest.it blocks the current thread while the sample is playing&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.zuhlke.rob.SampleClipTest.when sent an onStop message it releases the playback lock&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -155,12 +151,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="PianoNoteTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="SampleClipTest.when updated with a null event it does nothing" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.zuhlke.rob.PianoNoteTest&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.zuhlke.rob.SampleClipTest.when updated with a null event it does nothing&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -175,12 +171,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="PlayClipTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="SampleClipTest.when updated with a start event it does nothing" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;integration.PlayClipTest&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.zuhlke.rob.SampleClipTest.when updated with a start event it does nothing&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -195,12 +191,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="PlayClipTest.canPlay_ff3G" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="SampleClipTest.when updated with stop event it releases the playback lock" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;integration.PlayClipTest.canPlay_ff3G&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.zuhlke.rob.SampleClipTest.when updated with stop event it releases the playback lock&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -217,11 +213,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.PianoNoteSampleTest" />
-        <item itemvalue="Gradle.PianoNoteSampleTest.it blocks the current thread while the sample is playing" />
-        <item itemvalue="Gradle.PlayClipTest.canPlay_ff3G" />
-        <item itemvalue="Gradle.PlayClipTest" />
-        <item itemvalue="Gradle.PianoNoteTest" />
+        <item itemvalue="Gradle.SampleClipTest" />
+        <item itemvalue="Gradle.SampleClipTest.when updated with a start event it does nothing" />
+        <item itemvalue="Gradle.SampleClipTest.when updated with a null event it does nothing" />
+        <item itemvalue="Gradle.SampleClipTest.when updated with stop event it releases the playback lock" />
+        <item itemvalue="Gradle.SampleClipTest.when sent an onStop message it releases the playback lock" />
       </list>
     </recent_temporary>
   </component>
