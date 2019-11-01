@@ -8,7 +8,7 @@ import org.junit.Before
 import org.junit.Test
 import javax.sound.sampled.LineEvent
 
-class ClipPlayerTest {
+class FullPlayerTest {
     private val mockPlaybackLock = mockk<Lock>(relaxed = true)
     private val mockClip = mockk<Clip>(relaxed = true)
 
