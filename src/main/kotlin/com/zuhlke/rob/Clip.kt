@@ -32,3 +32,16 @@ class AudioClip(private val audioInputStream: AudioInputStream, private val clip
         return complete
     }
 }
+
+class MultiAudioClip(private vararg val subclips: Clip) : Clip {
+    override fun startWithPlaybackListener(player: Player) {
+        subclips.forEach { player.play(it) }
+    }
+
+    override fun stop() {
+    }
+
+    override fun isComplete(): Boolean {
+        return false
+    }
+}
