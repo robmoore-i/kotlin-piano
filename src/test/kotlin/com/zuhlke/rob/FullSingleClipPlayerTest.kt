@@ -7,6 +7,9 @@ import io.mockk.verify
 import org.junit.Before
 import org.junit.Test
 import javax.sound.sampled.LineEvent
+import javax.sound.sampled.LineEvent.Type
+import javax.sound.sampled.LineEvent.Type.START
+import javax.sound.sampled.LineEvent.Type.STOP
 
 class FullSingleClipPlayerTest {
     private val mockPlaybackLock = mockk<Lock>(relaxed = true)
@@ -15,6 +18,18 @@ class FullSingleClipPlayerTest {
     @Before
     fun beforeEach() {
         clearMocks(mockPlaybackLock, mockClip)
+    }
+
+    @Test
+    fun `when the clip stops it invokes the stop callbacks`() {
+        val clipPlayer = FullSingleClipPlayer(mockPlaybackLock)
+        val stopAction = mockk<() -> Unit>(relaxed = true)
+
+        clipPlayer.addStopAction(stopAction)
+        clipPlayer.play(mockClip)
+        clipPlayer.onLineEvent(lineEvent(STOP))
+
+        verify { stopAction.invoke() }
     }
 
     @Test
@@ -31,7 +46,7 @@ class FullSingleClipPlayerTest {
         val clipPlayer = FullSingleClipPlayer(mockPlaybackLock)
 
         clipPlayer.play(mockClip)
-        clipPlayer.update(lineEvent(LineEvent.Type.STOP))
+        clipPlayer.update(lineEvent(STOP))
 
         verify { mockClip.stop() }
     }
@@ -49,7 +64,7 @@ class FullSingleClipPlayerTest {
     fun `when updated with a start event it does nothing`() {
         val clipPlayer = FullSingleClipPlayer(mockPlaybackLock)
 
-        clipPlayer.update(lineEvent(LineEvent.Type.START))
+        clipPlayer.update(lineEvent(START))
 
         verify(exactly = 0) { mockPlaybackLock.release() }
     }
@@ -59,7 +74,7 @@ class FullSingleClipPlayerTest {
         val clipPlayer = FullSingleClipPlayer(mockPlaybackLock)
 
         clipPlayer.play(mockClip)
-        clipPlayer.update(lineEvent(LineEvent.Type.STOP))
+        clipPlayer.update(lineEvent(STOP))
 
         verify { mockPlaybackLock.release() }
     }
@@ -73,7 +88,7 @@ class FullSingleClipPlayerTest {
         verify { mockPlaybackLock.block(any()) }
     }
 
-    private fun lineEvent(type: LineEvent.Type): LineEvent {
+    private fun lineEvent(type: Type): LineEvent {
         val stubLineEvent = mockk<LineEvent>()
         every { stubLineEvent.type } returns type
         return stubLineEvent

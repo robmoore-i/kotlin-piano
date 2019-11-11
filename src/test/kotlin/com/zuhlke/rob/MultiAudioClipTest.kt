@@ -11,13 +11,22 @@ import org.junit.Test
 
 class MultiAudioClipTest {
     private val mockSemaphore = mockk<Semaphore>(relaxed = true)
-    private val mockPlayer = mockk<SingleClipPlayer>(relaxed = true)
+    private val mockClipPlayer = mockk<ClipPlayer>(relaxed = true)
     private val mockClipA = mockk<Clip>(relaxed = true)
     private val mockClipB = mockk<Clip>(relaxed = true)
 
     @Before
     fun beforeEach() {
-        clearMocks(mockSemaphore, mockPlayer, mockClipA, mockClipB)
+        clearMocks(mockSemaphore, mockClipPlayer, mockClipA, mockClipB)
+    }
+
+    @Test
+    fun `when clips starts it registers itself as a clip stop listener`() {
+        val multiAudioClip = MultiAudioClip(mockSemaphore, mockClipA, mockClipB)
+
+        multiAudioClip.playUsing(mockClipPlayer)
+
+        verify { mockClipPlayer.addStopAction(any()) }
     }
 
     @Test
@@ -50,7 +59,7 @@ class MultiAudioClipTest {
     fun `when clip starts it increments the semaphore by the number of subclips`() {
         val multiAudioClip = MultiAudioClip(mockSemaphore, mockClipA, mockClipB)
 
-        multiAudioClip.playUsing(mockPlayer)
+        multiAudioClip.playUsing(mockClipPlayer)
 
         verify { mockSemaphore.increment(2) }
     }
@@ -59,9 +68,9 @@ class MultiAudioClipTest {
     fun `when clip starts it plays all the subclips`() {
         val multiAudioClip = MultiAudioClip(mockSemaphore, mockClipA, mockClipB)
 
-        multiAudioClip.playUsing(mockPlayer)
+        multiAudioClip.playUsing(mockClipPlayer)
 
-        verify { mockPlayer.play(mockClipA) }
-        verify { mockPlayer.play(mockClipB) }
+        verify { mockClipPlayer.play(mockClipA) }
+        verify { mockClipPlayer.play(mockClipB) }
     }
 }

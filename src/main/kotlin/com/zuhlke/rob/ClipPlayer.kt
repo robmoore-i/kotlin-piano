@@ -5,6 +5,7 @@ import javax.sound.sampled.LineListener
 
 interface ClipPlayer : LineListener {
     fun play(clip: Clip)
+    fun addStopAction(callback: () -> Unit)
 }
 
 abstract class SingleClipPlayer : ClipPlayer {
@@ -18,7 +19,12 @@ abstract class SingleClipPlayer : ClipPlayer {
 }
 
 class FullSingleClipPlayer(private val lock: Lock) : SingleClipPlayer() {
+    private val callbacks: MutableList<() -> Unit> = mutableListOf()
     private lateinit var clip: Clip
+
+    override fun addStopAction(callback: () -> Unit) {
+        callbacks.add(callback)
+    }
 
     override fun onLineEvent(event: LineEvent) {
         if (event.type == LineEvent.Type.STOP) {
@@ -33,6 +39,7 @@ class FullSingleClipPlayer(private val lock: Lock) : SingleClipPlayer() {
     }
 
     private fun onStop() {
+        callbacks.forEach { it.invoke() }
         clip.stop()
         lock.release()
     }

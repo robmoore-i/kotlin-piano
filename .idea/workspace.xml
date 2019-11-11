@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="7a598051-dc8b-4c8f-a840-1e5b8c959ced" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/Semaphore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/Semaphore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/Clip.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/Clip.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/ClipPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/ClipPlayer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/FullSingleClipPlayerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/FullSingleClipPlayerTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/MultiAudioClipTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/MultiAudioClipTest.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -112,13 +116,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'com.zuhlke.rob'">
-    <configuration name="AudioClipTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.Tests in 'sounds.test'">
+    <configuration name="FullSingleClipPlayerTest.when the clip stops it invokes the stop callbacks" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.zuhlke.rob.AudioClipTest&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.zuhlke.rob.FullSingleClipPlayerTest.when the clip stops it invokes the stop callbacks&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -215,11 +219,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Tests in 'com.zuhlke.rob'" />
         <item itemvalue="Gradle.Tests in 'sounds.test'" />
+        <item itemvalue="Gradle.FullSingleClipPlayerTest.when the clip stops it invokes the stop callbacks" />
+        <item itemvalue="Gradle.Tests in 'com.zuhlke.rob'" />
         <item itemvalue="Gradle.MultiAudioClipTest.when clip starts it increments the semaphore by the number of clips" />
         <item itemvalue="Gradle.MultiAudioClipTest.when clip starts it plays all the sub clips" />
-        <item itemvalue="Gradle.AudioClipTest" />
       </list>
     </recent_temporary>
   </component>
@@ -239,7 +243,7 @@
       <workItem from="1572348383983" duration="10254000" />
       <workItem from="1572371149412" duration="679000" />
       <workItem from="1572437371662" duration="1969000" />
-      <workItem from="1573486166026" duration="1854000" />
+      <workItem from="1573486166026" duration="3099000" />
     </task>
     <task id="LOCAL-00001" summary="Converted a couple of classes to Kotlin. Use a dedicated Object as the lock.">
       <created>1572349670247</created>
@@ -388,7 +392,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573487978336</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="refactor">
+      <created>1573488067554</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1573488067554</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -429,7 +440,8 @@
     <MESSAGE value="rename interface method Clip::startWithPlaybackListener -&gt; Clip::playUsing" />
     <MESSAGE value="rename ClipPlayer -&gt; SingleClipPlayer" />
     <MESSAGE value="reintroduce the ClipPlayer interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="reintroduce the ClipPlayer interface" />
+    <MESSAGE value="refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
