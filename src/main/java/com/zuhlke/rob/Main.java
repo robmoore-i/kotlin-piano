@@ -10,8 +10,8 @@ public class Main {
         SingleAudioClip c = main.clip("ff3C");
         SingleAudioClip e = main.clip("ff3E");
         SingleAudioClip g = main.clip("ff3G");
-        MultiAudioClip multiAudioClip = new MultiAudioClip(c, e, g);
-        multiClipPlayer.play(multiAudioClip);
+        MultiAudioClip cMajor = new MultiAudioClip(c, e, g);
+        multiClipPlayer.play(cMajor);
     }
 
     private SingleAudioClip clip(String noteSpecification) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
