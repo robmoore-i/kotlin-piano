@@ -5,7 +5,7 @@ import javax.sound.sampled.AudioInputStream
 typealias RawClip = javax.sound.sampled.Clip
 
 interface Clip {
-    fun startWithPlaybackListener(player: Player)
+    fun startWithPlaybackListener(clipPlayer: ClipPlayer)
     fun stop()
     fun isComplete(): Boolean
 }
@@ -13,11 +13,11 @@ interface Clip {
 class AudioClip(private val audioInputStream: AudioInputStream, private val clip: RawClip) : Clip {
     private var complete: Boolean = false
 
-    override fun startWithPlaybackListener(player: Player) {
+    override fun startWithPlaybackListener(clipPlayer: ClipPlayer) {
         if (complete) {
             throw RuntimeException("Clip is already completed")
         }
-        clip.addLineListener(player)
+        clip.addLineListener(clipPlayer)
         clip.open(audioInputStream)
         clip.start()
     }
@@ -34,9 +34,9 @@ class AudioClip(private val audioInputStream: AudioInputStream, private val clip
 }
 
 class MultiAudioClip(private val semaphore: Semaphore, private vararg val subclips: Clip) : Clip {
-    override fun startWithPlaybackListener(player: Player) {
+    override fun startWithPlaybackListener(clipPlayer: ClipPlayer) {
         semaphore.increment(subclips.size)
-        subclips.forEach { player.play(it) }
+        subclips.forEach { clipPlayer.play(it) }
     }
 
     override fun stop() {

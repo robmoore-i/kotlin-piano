@@ -3,17 +3,22 @@ package com.zuhlke.rob
 import javax.sound.sampled.LineEvent
 import javax.sound.sampled.LineListener
 
-interface Player : LineListener {
-    fun play(clip: Clip)
-}
-
-class FullPlayer(private val lock: Lock) : Player {
-    private lateinit var clip: Clip
+abstract class ClipPlayer : LineListener {
+    abstract fun play(clip: Clip)
+    abstract fun onLineEvent(event: LineEvent)
 
     override fun update(event: LineEvent?) {
         if (event == null) {
             return
         }
+        onLineEvent(event)
+    }
+}
+
+class FullClipPlayer(private val lock: Lock) : ClipPlayer() {
+    private lateinit var clip: Clip
+
+    override fun onLineEvent(event: LineEvent) {
         if (event.type == LineEvent.Type.STOP) {
             onStop()
         }

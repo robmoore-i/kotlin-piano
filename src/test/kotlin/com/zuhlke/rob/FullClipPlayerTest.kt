@@ -8,7 +8,7 @@ import org.junit.Before
 import org.junit.Test
 import javax.sound.sampled.LineEvent
 
-class FullPlayerTest {
+class FullClipPlayerTest {
     private val mockPlaybackLock = mockk<Lock>(relaxed = true)
     private val mockClip = mockk<Clip>(relaxed = true)
 
@@ -19,7 +19,7 @@ class FullPlayerTest {
 
     @Test
     fun `starts sample when played using itself as the playback listener`() {
-        val clipPlayer = FullPlayer(mockPlaybackLock)
+        val clipPlayer = FullClipPlayer(mockPlaybackLock)
 
         clipPlayer.play(mockClip)
 
@@ -28,7 +28,7 @@ class FullPlayerTest {
 
     @Test
     fun `stops sample when stopped`() {
-        val clipPlayer = FullPlayer(mockPlaybackLock)
+        val clipPlayer = FullClipPlayer(mockPlaybackLock)
 
         clipPlayer.play(mockClip)
         clipPlayer.update(lineEvent(LineEvent.Type.STOP))
@@ -38,7 +38,7 @@ class FullPlayerTest {
 
     @Test
     fun `when updated with a null event it does nothing`() {
-        val clipPlayer = FullPlayer(mockPlaybackLock)
+        val clipPlayer = FullClipPlayer(mockPlaybackLock)
 
         clipPlayer.update(null)
 
@@ -47,7 +47,7 @@ class FullPlayerTest {
 
     @Test
     fun `when updated with a start event it does nothing`() {
-        val clipPlayer = FullPlayer(mockPlaybackLock)
+        val clipPlayer = FullClipPlayer(mockPlaybackLock)
 
         clipPlayer.update(lineEvent(LineEvent.Type.START))
 
@@ -56,7 +56,7 @@ class FullPlayerTest {
 
     @Test
     fun `when updated with stop event it releases the playback lock`() {
-        val clipPlayer = FullPlayer(mockPlaybackLock)
+        val clipPlayer = FullClipPlayer(mockPlaybackLock)
 
         clipPlayer.play(mockClip)
         clipPlayer.update(lineEvent(LineEvent.Type.STOP))
@@ -66,7 +66,7 @@ class FullPlayerTest {
 
     @Test
     fun `when the clip starts it blocks on the playback lock`() {
-        val clipPlayer = FullPlayer(mockPlaybackLock)
+        val clipPlayer = FullClipPlayer(mockPlaybackLock)
 
         clipPlayer.play(mockClip)
 

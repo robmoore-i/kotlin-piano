@@ -6,7 +6,7 @@ import org.junit.Test
 
 class MultiAudioClipTest {
     private val mockSemaphore = mockk<Semaphore>(relaxed = true)
-    private val mockPlayer = mockk<Player>(relaxed = true)
+    private val mockPlayer = mockk<ClipPlayer>(relaxed = true)
     private val mockClipA = mockk<Clip>(relaxed = true)
     private val mockClipB = mockk<Clip>(relaxed = true)
 
