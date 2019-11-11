@@ -15,7 +15,7 @@ abstract class ClipPlayer : LineListener {
     }
 }
 
-class FullClipPlayer(private val lock: Lock) : ClipPlayer() {
+class SingleFullClipPlayer(private val lock: Lock) : ClipPlayer() {
     private lateinit var clip: Clip
 
     override fun onLineEvent(event: LineEvent) {
