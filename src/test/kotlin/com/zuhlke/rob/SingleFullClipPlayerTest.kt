@@ -23,7 +23,7 @@ class SingleFullClipPlayerTest {
 
         clipPlayer.play(mockClip)
 
-        verify { mockClip.startWithPlaybackListener(clipPlayer) }
+        verify { mockClip.playUsing(clipPlayer) }
     }
 
     @Test

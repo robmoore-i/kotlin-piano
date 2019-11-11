@@ -26,7 +26,7 @@ class SingleFullClipPlayer(private val lock: Lock) : ClipPlayer() {
 
     override fun play(clip: Clip) {
         this.clip = clip
-        clip.startWithPlaybackListener(this)
+        clip.playUsing(this)
         lock.block { clip.isComplete() }
     }
 

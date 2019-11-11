@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="7a598051-dc8b-4c8f-a840-1e5b8c959ced" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/Clip.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/Clip.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/ClipPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/ClipPlayer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/FullClipPlayerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/SingleFullClipPlayerTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/AudioClipTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/AudioClipTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/MultiAudioClipTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/MultiAudioClipTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/SingleFullClipPlayerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/SingleFullClipPlayerTest.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -240,7 +243,7 @@
       <workItem from="1572348383983" duration="10254000" />
       <workItem from="1572371149412" duration="679000" />
       <workItem from="1572437371662" duration="1969000" />
-      <workItem from="1573486166026" duration="1312000" />
+      <workItem from="1573486166026" duration="1424000" />
     </task>
     <task id="LOCAL-00001" summary="Converted a couple of classes to Kotlin. Use a dedicated Object as the lock.">
       <created>1572349670247</created>
@@ -361,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573487328858</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="rename FullClipPlayer -&gt; SingleFullClipPlayer">
+      <created>1573487500602</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1573487500602</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,7 +408,8 @@
     <MESSAGE value="Convert Player to an abstract class called ClipPlayer" />
     <MESSAGE value="MultiAudioClipTest stops all the subclips" />
     <MESSAGE value="multiclip is complete when all the subclips are complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="multiclip is complete when all the subclips are complete" />
+    <MESSAGE value="rename FullClipPlayer -&gt; SingleFullClipPlayer" />
+    <option name="LAST_COMMIT_MESSAGE" value="rename FullClipPlayer -&gt; SingleFullClipPlayer" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

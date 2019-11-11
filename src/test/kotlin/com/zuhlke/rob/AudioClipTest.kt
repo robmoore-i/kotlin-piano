@@ -16,7 +16,7 @@ class AudioClipTest {
 
         clip.stop()
 
-        clip.startWithPlaybackListener(mockk())
+        clip.playUsing(mockk())
     }
 
     @Test
