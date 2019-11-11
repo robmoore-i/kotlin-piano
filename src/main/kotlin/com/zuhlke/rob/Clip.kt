@@ -44,6 +44,6 @@ class MultiAudioClip(private val semaphore: Semaphore, private vararg val subcli
     }
 
     override fun isComplete(): Boolean {
-        return false
+        return subclips.all { it.isComplete() }
     }
 }

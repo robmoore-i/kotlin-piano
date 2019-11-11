@@ -13,7 +13,7 @@ class FullClipPlayerTest {
     private val mockClip = mockk<Clip>(relaxed = true)
 
     @Before
-    fun setUp() {
+    fun beforeEach() {
         clearMocks(mockPlaybackLock, mockClip)
     }
 
