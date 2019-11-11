@@ -50,7 +50,7 @@ class MultiAudioClipTest {
     fun `when clip starts it plays all the subclips`() {
         val multiAudioClip = MultiAudioClip(mockClipA, mockClipB)
 
-        multiAudioClip.playUsing(mockClipPlayer)
+        multiAudioClip.playUsing { mockClipPlayer }
 
         verify { mockClipPlayer.play(mockClipA) }
         verify { mockClipPlayer.play(mockClipB) }

@@ -3,7 +3,7 @@ package com.zuhlke.rob
 interface MultiClip {
     val cardinality: Int
 
-    fun playUsing(singleClipPlayer: SingleClipPlayer)
+    fun playUsing(singleClipPlayerProvider: () -> SingleClipPlayer)
     fun stop()
     fun isComplete(): Boolean
 }
@@ -11,8 +11,8 @@ interface MultiClip {
 class MultiAudioClip(private vararg val subclips: SingleClip) : MultiClip {
     override val cardinality: Int = subclips.size
 
-    override fun playUsing(singleClipPlayer: SingleClipPlayer) {
-        subclips.forEach { singleClipPlayer.play(it) }
+    override fun playUsing(singleClipPlayerProvider: () -> SingleClipPlayer) {
+        subclips.forEach { singleClipPlayerProvider.invoke().play(it) }
     }
 
     override fun stop() {

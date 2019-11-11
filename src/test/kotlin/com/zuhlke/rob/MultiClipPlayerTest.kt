@@ -5,7 +5,7 @@ import io.mockk.mockk
 import io.mockk.verify
 import org.junit.Test
 
-class FullMultiClipPlayerTest {
+class MultiClipPlayerTest {
     private val mockMutliClip = mockk<MultiClip>(relaxed = true)
     private val mockSemaphore = mockk<Semaphore>(relaxed = true)
     private val singleClipPlayer = mockk<SingleClipPlayer>(relaxed = true)
@@ -14,7 +14,7 @@ class FullMultiClipPlayerTest {
     fun `it increments the semaphore by the cardinality of the subclip`() {
         val cardinality = 5
         every { mockMutliClip.cardinality } returns cardinality
-        val fullMultiClipPlayer = FullMultiClipPlayer(mockSemaphore, singleClipPlayer)
+        val fullMultiClipPlayer = MultiClipPlayer(mockSemaphore) { singleClipPlayer }
 
         fullMultiClipPlayer.play(mockMutliClip)
 
@@ -23,7 +23,7 @@ class FullMultiClipPlayerTest {
 
     @Test
     fun `it plays the multiclip`() {
-        val fullMultiClipPlayer = FullMultiClipPlayer(mockSemaphore, singleClipPlayer)
+        val fullMultiClipPlayer = MultiClipPlayer(mockSemaphore) { singleClipPlayer }
 
         fullMultiClipPlayer.play(mockMutliClip)
 
@@ -32,7 +32,7 @@ class FullMultiClipPlayerTest {
 
     @Test
     fun `when clip starts it blocks on the semaphore`() {
-        val fullMultiClipPlayer = FullMultiClipPlayer(mockSemaphore, singleClipPlayer)
+        val fullMultiClipPlayer = MultiClipPlayer(mockSemaphore) { singleClipPlayer }
 
         fullMultiClipPlayer.play(mockMutliClip)
 
