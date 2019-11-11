@@ -12,7 +12,7 @@ class MultiAudioClip(private vararg val subclips: SingleClip) : MultiClip {
     override val cardinality: Int = subclips.size
 
     override fun playUsing(singleClipPlayerProvider: () -> SingleClipPlayer) {
-        subclips.forEach { singleClipPlayerProvider.invoke().play(it) }
+        subclips.forEach { singleClipPlayerProvider.invoke().playInBackground(it) }
     }
 
     override fun stop() {

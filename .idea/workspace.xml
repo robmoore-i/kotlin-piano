@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7a598051-dc8b-4c8f-a840-1e5b8c959ced" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/MultiClipPlayer.kt" afterDir="false" />
+    <list default="true" id="7a598051-dc8b-4c8f-a840-1e5b8c959ced" name="Default Changelist" comment="Add playInBackground as a method on the SingleClipPlayer interface, which is needed for the MultiAudioClip. Add a Main method.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/Semaphore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/Semaphore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/FullMultiClipPlayer.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/MultiAudioClip.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/MultiAudioClip.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/FullMultiClipPlayerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/MultiClipPlayerTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/SingleClipPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/SingleClipPlayer.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/MultiAudioClipTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/MultiAudioClipTest.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,10 +38,10 @@
       <list>
         <option value="Python Script" />
         <option value="JUnit4 Test Class" />
-        <option value="Class" />
         <option value="Kotlin Class" />
         <option value="Interface" />
         <option value="Kotlin File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -88,14 +86,14 @@
     <key name="MoveInnerDialog.RECENTS_KEY">
       <recent name="com.zuhlke.rob" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources" />
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
     </key>
     <key name="KotlinExtractInterfaceDialog.RECENT_KEYS">
       <recent name="com.zuhlke.rob" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.zuhlke.rob" />
@@ -118,6 +116,19 @@
     </option>
   </component>
   <component name="RunManager" selected="Gradle.Tests in 'sounds.test'">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zuhlke.rob.Main" />
+      <module name="sounds.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zuhlke.rob.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="FullMultiClipPlayerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -144,26 +155,6 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="--tests &quot;com.zuhlke.rob.FullMultiClipPlayerTest.when clip starts it blocks on the semaphore&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="FullSingleClipPlayerTest.when the clip stops it invokes the stop callbacks" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.zuhlke.rob.FullSingleClipPlayerTest.when the clip stops it invokes the stop callbacks&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -221,10 +212,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Tests in 'sounds.test'" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.Tests in 'com.zuhlke.rob'" />
         <item itemvalue="Gradle.FullMultiClipPlayerTest" />
         <item itemvalue="Gradle.FullMultiClipPlayerTest.when clip starts it blocks on the semaphore" />
-        <item itemvalue="Gradle.FullSingleClipPlayerTest.when the clip stops it invokes the stop callbacks" />
       </list>
     </recent_temporary>
   </component>
@@ -414,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573491099984</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Implemented the primitiveSemaphore. Implement rest of MutliClipPlayer and MultiClip.">
+      <created>1573492587850</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1573492587850</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -457,7 +455,8 @@
     <MESSAGE value="reintroduce the ClipPlayer interface" />
     <MESSAGE value="refactor" />
     <MESSAGE value="start writing FullMultiClipPlayer all detached from previous abstractions." />
-    <option name="LAST_COMMIT_MESSAGE" value="start writing FullMultiClipPlayer all detached from previous abstractions." />
+    <MESSAGE value="Implemented the primitiveSemaphore. Implement rest of MutliClipPlayer and MultiClip." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented the primitiveSemaphore. Implement rest of MutliClipPlayer and MultiClip." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
