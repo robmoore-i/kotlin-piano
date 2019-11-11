@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a598051-dc8b-4c8f-a840-1e5b8c959ced" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/MultiAudioClipTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zuhlke/rob/Semaphore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/Clip.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/Clip.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/AudioClipTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/AudioClipTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/FullPlayerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/FullPlayerTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/MultiAudioClipTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/MultiAudioClipTest.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,8 +41,8 @@
         <option value="JUnit4 Test Class" />
         <option value="Class" />
         <option value="Kotlin File" />
-        <option value="Interface" />
         <option value="Kotlin Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -74,9 +77,6 @@
       <recent name="com.zuhlke.rob.sample" />
       <recent name="com.zuhlke.rob.note" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.zuhlke.rob" />
-    </key>
     <key name="CreateKotlinClassDialog.RecentsKey">
       <recent name="com.zuhlke.rob" />
     </key>
@@ -86,6 +86,9 @@
     </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
       <recent name="com.zuhlke.rob" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="KotlinExtractInterfaceDialog.RECENT_KEYS">
       <recent name="com.zuhlke.rob" />
@@ -97,8 +100,8 @@
       <recent name="com.zuhlke.rob" />
       <recent name="com.zuhlke.rob.sample" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.zuhlke.rob" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -134,12 +137,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ClipPlayerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="MultiAudioClipTest.when clip starts it increments the semaphore by the number of clips" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.zuhlke.rob.ClipPlayerTest&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.zuhlke.rob.MultiAudioClipTest.when clip starts it increments the semaphore by the number of clips&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -217,10 +220,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Tests in 'com.zuhlke.rob'" />
+        <item itemvalue="Gradle.MultiAudioClipTest.when clip starts it increments the semaphore by the number of clips" />
         <item itemvalue="Gradle.MultiAudioClipTest.when clip starts it plays all the sub clips" />
         <item itemvalue="Gradle.Tests in 'sounds.test'" />
         <item itemvalue="Gradle.AudioClipTest" />
-        <item itemvalue="Gradle.ClipPlayerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -240,6 +243,7 @@
       <workItem from="1572348383983" duration="10254000" />
       <workItem from="1572371149412" duration="679000" />
       <workItem from="1572437371662" duration="1969000" />
+      <workItem from="1573486166026" duration="390000" />
     </task>
     <task id="LOCAL-00001" summary="Converted a couple of classes to Kotlin. Use a dedicated Object as the lock.">
       <created>1572349670247</created>

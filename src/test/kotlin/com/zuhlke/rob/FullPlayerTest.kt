@@ -18,40 +18,12 @@ class FullPlayerTest {
     }
 
     @Test
-    fun `when the clip starts it blocks on the playback lock`() {
+    fun `starts sample when played using itself as the playback listener`() {
         val clipPlayer = FullPlayer(mockPlaybackLock)
 
         clipPlayer.play(mockClip)
 
-        verify { mockPlaybackLock.block(any()) }
-    }
-
-    @Test
-    fun `when updated with stop event it releases the playback lock`() {
-        val clipPlayer = FullPlayer(mockPlaybackLock)
-
-        clipPlayer.play(mockClip)
-        clipPlayer.update(lineEvent(LineEvent.Type.STOP))
-
-        verify { mockPlaybackLock.release() }
-    }
-
-    @Test
-    fun `when updated with a start event it does nothing`() {
-        val clipPlayer = FullPlayer(mockPlaybackLock)
-
-        clipPlayer.update(lineEvent(LineEvent.Type.START))
-
-        verify(exactly = 0) { mockPlaybackLock.release() }
-    }
-
-    @Test
-    fun `when updated with a null event it does nothing`() {
-        val clipPlayer = FullPlayer(mockPlaybackLock)
-
-        clipPlayer.update(null)
-
-        verify(exactly = 0) { mockPlaybackLock.release() }
+        verify { mockClip.startWithPlaybackListener(clipPlayer) }
     }
 
     @Test
@@ -65,12 +37,40 @@ class FullPlayerTest {
     }
 
     @Test
-    fun `starts sample when played using itself as the playback listener`() {
+    fun `when updated with a null event it does nothing`() {
+        val clipPlayer = FullPlayer(mockPlaybackLock)
+
+        clipPlayer.update(null)
+
+        verify(exactly = 0) { mockPlaybackLock.release() }
+    }
+
+    @Test
+    fun `when updated with a start event it does nothing`() {
+        val clipPlayer = FullPlayer(mockPlaybackLock)
+
+        clipPlayer.update(lineEvent(LineEvent.Type.START))
+
+        verify(exactly = 0) { mockPlaybackLock.release() }
+    }
+
+    @Test
+    fun `when updated with stop event it releases the playback lock`() {
+        val clipPlayer = FullPlayer(mockPlaybackLock)
+
+        clipPlayer.play(mockClip)
+        clipPlayer.update(lineEvent(LineEvent.Type.STOP))
+
+        verify { mockPlaybackLock.release() }
+    }
+
+    @Test
+    fun `when the clip starts it blocks on the playback lock`() {
         val clipPlayer = FullPlayer(mockPlaybackLock)
 
         clipPlayer.play(mockClip)
 
-        verify { mockClip.startWithPlaybackListener(clipPlayer) }
+        verify { mockPlaybackLock.block(any()) }
     }
 
     private fun lineEvent(type: LineEvent.Type): LineEvent {

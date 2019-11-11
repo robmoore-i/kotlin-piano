@@ -33,8 +33,9 @@ class AudioClip(private val audioInputStream: AudioInputStream, private val clip
     }
 }
 
-class MultiAudioClip(private vararg val subclips: Clip) : Clip {
+class MultiAudioClip(private val semaphore: Semaphore, private vararg val subclips: Clip) : Clip {
     override fun startWithPlaybackListener(player: Player) {
+        semaphore.increment(subclips.size)
         subclips.forEach { player.play(it) }
     }
 

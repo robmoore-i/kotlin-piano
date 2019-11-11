@@ -10,11 +10,13 @@ class AudioClipTest {
     private val mockAudioInputStream = mockk<AudioInputStream>(relaxed = true)
     private val mockRawClip = mockk<RawClip>(relaxed = true)
 
-    @Test
-    fun `is initially not completed`() {
+    @Test(expected = RuntimeException::class)
+    fun `once stopped it cannot be restarted`() {
         val clip = AudioClip(mockAudioInputStream, mockRawClip)
 
-        assertFalse(clip.isComplete())
+        clip.stop()
+
+        clip.startWithPlaybackListener(mockk())
     }
 
     @Test
@@ -26,13 +28,11 @@ class AudioClipTest {
         assertTrue(clip.isComplete())
     }
 
-    @Test(expected = RuntimeException::class)
-    fun `once stopped it cannot be restarted`() {
+    @Test
+    fun `is initially not completed`() {
         val clip = AudioClip(mockAudioInputStream, mockRawClip)
 
-        clip.stop()
-
-        clip.startWithPlaybackListener(mockk())
+        assertFalse(clip.isComplete())
     }
 }
 
