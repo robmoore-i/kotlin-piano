@@ -11,7 +11,17 @@ class MultiAudioClipTest {
     private val mockClipB = mockk<Clip>(relaxed = true)
 
     @Test
-    fun `when clip starts it increments the semaphore by the number of clips`() {
+    fun `when clip stops it stops all the subclips`() {
+        val multiAudioClip = MultiAudioClip(mockSemaphore, mockClipA, mockClipB)
+
+        multiAudioClip.stop()
+
+        verify { mockClipA.stop() }
+        verify { mockClipA.stop() }
+    }
+
+    @Test
+    fun `when clip starts it increments the semaphore by the number of subclips`() {
         val multiAudioClip = MultiAudioClip(mockSemaphore, mockClipA, mockClipB)
 
         multiAudioClip.startWithPlaybackListener(mockPlayer)
@@ -20,7 +30,7 @@ class MultiAudioClipTest {
     }
 
     @Test
-    fun `when clip starts it plays all the sub clips`() {
+    fun `when clip starts it plays all the subclips`() {
         val multiAudioClip = MultiAudioClip(mockSemaphore, mockClipA, mockClipB)
 
         multiAudioClip.startWithPlaybackListener(mockPlayer)

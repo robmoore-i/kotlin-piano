@@ -40,6 +40,7 @@ class MultiAudioClip(private val semaphore: Semaphore, private vararg val subcli
     }
 
     override fun stop() {
+        subclips.forEach { it.stop() }
     }
 
     override fun isComplete(): Boolean {
