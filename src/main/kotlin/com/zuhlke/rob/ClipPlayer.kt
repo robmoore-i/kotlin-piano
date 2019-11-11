@@ -3,8 +3,11 @@ package com.zuhlke.rob
 import javax.sound.sampled.LineEvent
 import javax.sound.sampled.LineListener
 
-abstract class SingleClipPlayer : LineListener {
-    abstract fun play(clip: Clip)
+interface ClipPlayer : LineListener {
+    fun play(clip: Clip)
+}
+
+abstract class SingleClipPlayer : ClipPlayer {
     abstract fun onLineEvent(event: LineEvent)
 
     override fun update(event: LineEvent?) {

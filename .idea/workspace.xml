@@ -4,9 +4,7 @@
     <list default="true" id="7a598051-dc8b-4c8f-a840-1e5b8c959ced" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/Clip.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/Clip.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/ClipPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/SingleClipPlayer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/MultiAudioClipTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/MultiAudioClipTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/SingleFullClipPlayerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/com/zuhlke/rob/FullSingleClipPlayerTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/SingleClipPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/ClipPlayer.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -115,7 +113,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'sounds.test'">
+  <component name="RunManager" selected="Gradle.Tests in 'com.zuhlke.rob'">
     <configuration name="AudioClipTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -218,8 +216,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Tests in 'sounds.test'" />
         <item itemvalue="Gradle.Tests in 'com.zuhlke.rob'" />
+        <item itemvalue="Gradle.Tests in 'sounds.test'" />
         <item itemvalue="Gradle.MultiAudioClipTest.when clip starts it increments the semaphore by the number of clips" />
         <item itemvalue="Gradle.MultiAudioClipTest.when clip starts it plays all the sub clips" />
         <item itemvalue="Gradle.AudioClipTest" />
@@ -242,7 +240,7 @@
       <workItem from="1572348383983" duration="10254000" />
       <workItem from="1572371149412" duration="679000" />
       <workItem from="1572437371662" duration="1969000" />
-      <workItem from="1573486166026" duration="1534000" />
+      <workItem from="1573486166026" duration="1795000" />
     </task>
     <task id="LOCAL-00001" summary="Converted a couple of classes to Kotlin. Use a dedicated Object as the lock.">
       <created>1572349670247</created>
@@ -377,7 +375,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573487618195</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="rename ClipPlayer -&gt; SingleClipPlayer">
+      <created>1573487745207</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1573487745207</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,7 +421,8 @@
     <MESSAGE value="multiclip is complete when all the subclips are complete" />
     <MESSAGE value="rename FullClipPlayer -&gt; SingleFullClipPlayer" />
     <MESSAGE value="rename interface method Clip::startWithPlaybackListener -&gt; Clip::playUsing" />
-    <option name="LAST_COMMIT_MESSAGE" value="rename interface method Clip::startWithPlaybackListener -&gt; Clip::playUsing" />
+    <MESSAGE value="rename ClipPlayer -&gt; SingleClipPlayer" />
+    <option name="LAST_COMMIT_MESSAGE" value="rename ClipPlayer -&gt; SingleClipPlayer" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
