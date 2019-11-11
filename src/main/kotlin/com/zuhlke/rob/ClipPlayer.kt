@@ -11,10 +11,9 @@ abstract class SingleClipPlayer : ClipPlayer {
     abstract fun onLineEvent(event: LineEvent)
 
     override fun update(event: LineEvent?) {
-        if (event == null) {
-            return
+        if (event != null) {
+            onLineEvent(event)
         }
-        onLineEvent(event)
     }
 }
 

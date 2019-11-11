@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7a598051-dc8b-4c8f-a840-1e5b8c959ced" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/Clip.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/Clip.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/SingleClipPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/ClipPlayer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/ClipPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/zuhlke/rob/ClipPlayer.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -240,7 +239,7 @@
       <workItem from="1572348383983" duration="10254000" />
       <workItem from="1572371149412" duration="679000" />
       <workItem from="1572437371662" duration="1969000" />
-      <workItem from="1573486166026" duration="1795000" />
+      <workItem from="1573486166026" duration="1854000" />
     </task>
     <task id="LOCAL-00001" summary="Converted a couple of classes to Kotlin. Use a dedicated Object as the lock.">
       <created>1572349670247</created>
@@ -382,7 +381,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573487745207</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="reintroduce the ClipPlayer interface">
+      <created>1573487978336</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1573487978336</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,7 +428,8 @@
     <MESSAGE value="rename FullClipPlayer -&gt; SingleFullClipPlayer" />
     <MESSAGE value="rename interface method Clip::startWithPlaybackListener -&gt; Clip::playUsing" />
     <MESSAGE value="rename ClipPlayer -&gt; SingleClipPlayer" />
-    <option name="LAST_COMMIT_MESSAGE" value="rename ClipPlayer -&gt; SingleClipPlayer" />
+    <MESSAGE value="reintroduce the ClipPlayer interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="reintroduce the ClipPlayer interface" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
