@@ -21,33 +21,24 @@ class MultiAudioClipTest {
     }
 
     @Test
-    fun `when clips starts it registers itself as a clip stop listener`() {
-        val multiAudioClip = MultiAudioClip(mockSemaphore, mockClipA, mockClipB)
-
-        multiAudioClip.playUsing(mockClipPlayer)
-
-        verify { mockClipPlayer.addStopAction(any()) }
-    }
-
-    @Test
     fun `it is complete when all the subclips are complete`() {
         every { mockClipA.isComplete() } returns true
         every { mockClipB.isComplete() } returns true
-        val multiAudioClip = MultiAudioClip(mockSemaphore, mockClipA, mockClipB)
+        val multiAudioClip = MultiAudioClip(mockClipA, mockClipB)
 
         assertTrue(multiAudioClip.isComplete())
     }
 
     @Test
     fun `it is initially incomplete`() {
-        val multiAudioClip = MultiAudioClip(mockSemaphore, mockClipA, mockClipB)
+        val multiAudioClip = MultiAudioClip(mockClipA, mockClipB)
 
         assertFalse(multiAudioClip.isComplete())
     }
 
     @Test
     fun `when clip stops it stops all the subclips`() {
-        val multiAudioClip = MultiAudioClip(mockSemaphore, mockClipA, mockClipB)
+        val multiAudioClip = MultiAudioClip(mockClipA, mockClipB)
 
         multiAudioClip.stop()
 
@@ -56,17 +47,8 @@ class MultiAudioClipTest {
     }
 
     @Test
-    fun `when clip starts it increments the semaphore by the number of subclips`() {
-        val multiAudioClip = MultiAudioClip(mockSemaphore, mockClipA, mockClipB)
-
-        multiAudioClip.playUsing(mockClipPlayer)
-
-        verify { mockSemaphore.increment(2) }
-    }
-
-    @Test
     fun `when clip starts it plays all the subclips`() {
-        val multiAudioClip = MultiAudioClip(mockSemaphore, mockClipA, mockClipB)
+        val multiAudioClip = MultiAudioClip(mockClipA, mockClipB)
 
         multiAudioClip.playUsing(mockClipPlayer)
 
