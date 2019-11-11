@@ -6,13 +6,13 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 import javax.sound.sampled.AudioInputStream
 
-class AudioClipTest {
+class SingleAudioClipTest {
     private val mockAudioInputStream = mockk<AudioInputStream>(relaxed = true)
     private val mockRawClip = mockk<RawClip>(relaxed = true)
 
     @Test(expected = RuntimeException::class)
     fun `once stopped it cannot be restarted`() {
-        val clip = AudioClip(mockAudioInputStream, mockRawClip)
+        val clip = SingleAudioClip(mockAudioInputStream, mockRawClip)
 
         clip.stop()
 
@@ -21,7 +21,7 @@ class AudioClipTest {
 
     @Test
     fun `when stopped it becomes complete`() {
-        val clip = AudioClip(mockAudioInputStream, mockRawClip)
+        val clip = SingleAudioClip(mockAudioInputStream, mockRawClip)
 
         clip.stop()
 
@@ -30,7 +30,7 @@ class AudioClipTest {
 
     @Test
     fun `is initially not completed`() {
-        val clip = AudioClip(mockAudioInputStream, mockRawClip)
+        val clip = SingleAudioClip(mockAudioInputStream, mockRawClip)
 
         assertFalse(clip.isComplete())
     }

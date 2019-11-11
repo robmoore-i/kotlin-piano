@@ -13,7 +13,7 @@ import javax.sound.sampled.LineEvent.Type.STOP
 
 class FullSingleClipPlayerTest {
     private val mockPlaybackLock = mockk<Lock>(relaxed = true)
-    private val mockClip = mockk<Clip>(relaxed = true)
+    private val mockClip = mockk<SingleClip>(relaxed = true)
 
     @Before
     fun beforeEach() {

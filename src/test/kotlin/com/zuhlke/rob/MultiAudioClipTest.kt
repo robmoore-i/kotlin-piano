@@ -11,9 +11,9 @@ import org.junit.Test
 
 class MultiAudioClipTest {
     private val mockSemaphore = mockk<Semaphore>(relaxed = true)
-    private val mockClipPlayer = mockk<ClipPlayer>(relaxed = true)
-    private val mockClipA = mockk<Clip>(relaxed = true)
-    private val mockClipB = mockk<Clip>(relaxed = true)
+    private val mockClipPlayer = mockk<SingleClipPlayer>(relaxed = true)
+    private val mockClipA = mockk<SingleClip>(relaxed = true)
+    private val mockClipB = mockk<SingleClip>(relaxed = true)
 
     @Before
     fun beforeEach() {
