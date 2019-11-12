@@ -2,13 +2,17 @@ package com.zuhlke.rob;
 
 import javax.sound.sampled.*;
 import java.io.IOException;
+import java.time.Duration;
+import java.util.Timer;
 
 public class Main {
     public static void main(String[] args) throws IOException, LineUnavailableException, UnsupportedAudioFileException {
         Main main = new Main();
-        UniClip c = main.clip("ff3C");
-        UniClip e = main.clip("ff3E");
-        UniClip g = main.clip("ff3G");
+        Timer timer = new Timer();
+        Duration twoSeconds = Duration.ofSeconds(2);
+        UniClip c = main.clip("ff3C").withTimer(timer, twoSeconds);
+        UniClip e = main.clip("ff3E").withTimer(timer, twoSeconds);
+        UniClip g = main.clip("ff3G").withTimer(timer, twoSeconds);
         MultiClip cMajor = new MultiClip(c, e, g);
         cMajor.playInForeground(Semaphore.primitiveSemaphore());
     }

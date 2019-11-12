@@ -8,8 +8,13 @@ import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
+import java.time.Duration
+import java.time.temporal.ChronoUnit
+import java.util.*
 import javax.sound.sampled.AudioInputStream
 import javax.sound.sampled.LineEvent
+import javax.sound.sampled.LineEvent.Type.START
+import javax.sound.sampled.LineEvent.Type.STOP
 
 class UniClipTest {
     private val mockAudioInputStream = mockk<AudioInputStream>(relaxed = true)
@@ -22,13 +27,32 @@ class UniClipTest {
     }
 
     @Test
+    fun `doesn't invoke the stoppage timer until the clip starts`() {
+        val mockTimer = mockk<Timer>(relaxed = true)
+
+        UniClip(mockAudioInputStream, mockRawClip).withTimer(mockTimer, Duration.of(1, ChronoUnit.SECONDS))
+
+        verify(exactly = 0) { mockTimer.schedule(any(), 1000) }
+    }
+
+    @Test
+    fun `invokes the stoppage timer if given one`() {
+        val mockTimer = mockk<Timer>(relaxed = true)
+        val clip = UniClip(mockAudioInputStream, mockRawClip).withTimer(mockTimer, Duration.of(1, ChronoUnit.SECONDS))
+
+        clip.update(lineEvent(START))
+
+        verify { mockTimer.schedule(any(), 1000) }
+    }
+
+    @Test
     fun `when the clip stops it invokes the stop callbacks`() {
         val stopAction = mockk<() -> Unit>(relaxed = true)
         val clip = UniClip(mockAudioInputStream, mockRawClip)
 
         clip.addStopAction(stopAction)
         clip.playInForeground(mockLock)
-        clip.update(lineEvent(LineEvent.Type.STOP))
+        clip.update(lineEvent(STOP))
 
         verify { stopAction.invoke() }
     }
@@ -48,7 +72,7 @@ class UniClipTest {
         val clip = UniClip(mockAudioInputStream, mockRawClip)
 
         clip.playInForeground(mockLock)
-        clip.update(lineEvent(LineEvent.Type.STOP))
+        clip.update(lineEvent(STOP))
 
         verify { mockRawClip.close() }
         verify { mockAudioInputStream.close() }
@@ -58,7 +82,7 @@ class UniClipTest {
     fun `when updated with a start event it does nothing`() {
         val clip = UniClip(mockAudioInputStream, mockRawClip)
 
-        clip.update(lineEvent(LineEvent.Type.START))
+        clip.update(lineEvent(START))
 
         verify(exactly = 0) { mockLock.release() }
     }
@@ -68,7 +92,7 @@ class UniClipTest {
         val clip = UniClip(mockAudioInputStream, mockRawClip)
 
         clip.playInForeground(mockLock)
-        clip.update(lineEvent(LineEvent.Type.STOP))
+        clip.update(lineEvent(STOP))
 
         verify { mockLock.release() }
     }

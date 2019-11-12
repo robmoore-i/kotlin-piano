@@ -1,5 +1,7 @@
 package com.zuhlke.rob
 
+import java.time.Duration
+import java.util.*
 import javax.sound.sampled.AudioInputStream
 import javax.sound.sampled.LineEvent
 import javax.sound.sampled.LineListener
@@ -8,7 +10,8 @@ typealias RawClip = javax.sound.sampled.Clip
 
 class UniClip(private val audioInputStream: AudioInputStream, private val clip: RawClip) : LineListener {
     private var complete: Boolean = false
-    private val callbacks: MutableList<() -> Unit> = mutableListOf()
+    private val stopCallbacks: MutableList<() -> Unit> = mutableListOf()
+    private val startCallbacks: MutableList<() -> Unit> = mutableListOf()
 
     fun playInBackground() {
         play()
@@ -23,6 +26,8 @@ class UniClip(private val audioInputStream: AudioInputStream, private val clip: 
     override fun update(event: LineEvent) {
         if (event.type == LineEvent.Type.STOP) {
             stop()
+        } else if (event.type == LineEvent.Type.START) {
+            start()
         }
     }
 
@@ -30,14 +35,22 @@ class UniClip(private val audioInputStream: AudioInputStream, private val clip: 
         return complete
     }
 
+    private fun addStartAction(callback: () -> Unit) {
+        startCallbacks.add(callback)
+    }
+
+    private fun start() {
+        startCallbacks.forEach { it.invoke() }
+    }
+
     fun addStopAction(callback: () -> Unit) {
-        callbacks.add(callback)
+        stopCallbacks.add(callback)
     }
 
     fun stop() {
         clip.close()
         audioInputStream.close()
-        callbacks.forEach { it.invoke() }
+        stopCallbacks.forEach { it.invoke() }
         complete = true
     }
 
@@ -49,4 +62,17 @@ class UniClip(private val audioInputStream: AudioInputStream, private val clip: 
         clip.open(audioInputStream)
         clip.start()
     }
+
+    fun withTimer(timer: Timer, duration: Duration): UniClip {
+        addStartAction { timer.schedule(duration.toMillis()) { stop() } }
+        return this
+    }
+}
+
+private fun Timer.schedule(millis: Long, function: () -> Unit) {
+    schedule(object : TimerTask() {
+        override fun run() {
+            function.invoke()
+        }
+    }, millis)
 }
