@@ -6,8 +6,10 @@ import javax.sound.sampled.LineListener
 
 typealias RawClip = javax.sound.sampled.Clip
 
-class UniClip(private val audioInputStream: AudioInputStream, private val clip: RawClip) : Clip<UniClipPlayer> {
+class UniClip(private val audioInputStream: AudioInputStream, private val clip: RawClip) : Clip<UniClipPlayer>, LineListener {
+    private lateinit var lock: Lock
     private var complete: Boolean = false
+    private val callbacks: MutableList<() -> Unit> = mutableListOf()
 
     override fun cardinality() = 1
 
@@ -15,7 +17,7 @@ class UniClip(private val audioInputStream: AudioInputStream, private val clip: 
         if (complete) {
             throw RuntimeException("Clip is already completed")
         }
-        clip.addLineListener(player)
+        clip.addLineListener(this)
         clip.open(audioInputStream)
         clip.start()
     }
@@ -24,33 +26,39 @@ class UniClip(private val audioInputStream: AudioInputStream, private val clip: 
         clip.close()
         audioInputStream.close()
         complete = true
+        callbacks.forEach { it.invoke() }
+        lock.release()
     }
 
     override fun isComplete(): Boolean {
         return complete
     }
 
-    fun playInBackground(player: UniClipPlayer) {
-        if (complete) {
-            throw RuntimeException("Clip is already completed")
+    override fun update(event: LineEvent) {
+        if (event.type == LineEvent.Type.STOP) {
+            stop()
         }
-        clip.addLineListener(player)
-        clip.open(audioInputStream)
-        clip.start()
+    }
+
+    fun playInBackground(player: UniClipPlayer) {
+        playUsing(player)
+    }
+
+    fun play(lock: Lock, player: UniClipPlayer) {
+        this.lock = lock
+        playUsing(player)
+        lock.block { this.isComplete() }
+    }
+
+    fun addStopAction(callback: () -> Unit) {
+        callbacks.add(callback)
     }
 }
 
-class UniClipPlayer : LineListener, ClipPlayer<UniClip, Lock> {
+class UniClipPlayer : LineListener {
     private val callbacks: MutableList<() -> Unit> = mutableListOf()
     private lateinit var clip: UniClip
     private lateinit var lock: Lock
-
-    override fun play(clip: UniClip, mutex: Lock) {
-        this.lock = mutex
-        this.clip = clip
-        clip.playUsing(this)
-        mutex.block { clip.isComplete() }
-    }
 
     override fun update(event: LineEvent) {
         if (event.type == LineEvent.Type.STOP) {
