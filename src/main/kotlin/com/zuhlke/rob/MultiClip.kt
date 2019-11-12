@@ -4,7 +4,7 @@ class MultiClip(private vararg val subclips: UniClip) : Clip<() -> UniClipPlayer
     override fun cardinality(): Int = subclips.size
 
     override fun playUsing(player: () -> UniClipPlayer) {
-        subclips.forEach { player.invoke().playInBackground(it) }
+        subclips.forEach { it.playInBackground(player.invoke()) }
     }
 
     override fun stop() {

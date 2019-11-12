@@ -29,6 +29,15 @@ class UniClip(private val audioInputStream: AudioInputStream, private val clip: 
     override fun isComplete(): Boolean {
         return complete
     }
+
+    fun playInBackground(player: UniClipPlayer) {
+        if (complete) {
+            throw RuntimeException("Clip is already completed")
+        }
+        clip.addLineListener(player)
+        clip.open(audioInputStream)
+        clip.start()
+    }
 }
 
 class UniClipPlayer : LineListener, ClipPlayer<UniClip, Lock> {
@@ -38,13 +47,9 @@ class UniClipPlayer : LineListener, ClipPlayer<UniClip, Lock> {
 
     override fun play(clip: UniClip, mutex: Lock) {
         this.lock = mutex
-        playInBackground(clip)
-        mutex.block { clip.isComplete() }
-    }
-
-    override fun playInBackground(clip: UniClip) {
         this.clip = clip
         clip.playUsing(this)
+        mutex.block { clip.isComplete() }
     }
 
     override fun update(event: LineEvent) {

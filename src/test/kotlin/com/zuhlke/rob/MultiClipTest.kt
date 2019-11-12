@@ -70,7 +70,7 @@ class MultiClipTest {
 
         multiAudioClip.playUsing { mockClipPlayer }
 
-        verify { mockClipPlayer.playInBackground(mockClipA) }
-        verify { mockClipPlayer.playInBackground(mockClipB) }
+        verify { mockClipA.playInBackground(mockClipPlayer) }
+        verify { mockClipB.playInBackground(mockClipPlayer) }
     }
 }
