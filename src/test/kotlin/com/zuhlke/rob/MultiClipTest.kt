@@ -11,20 +11,19 @@ import org.junit.Test
 
 class MultiClipTest {
     private val mockSemaphore = mockk<Semaphore>(relaxed = true)
-    private val mockClipPlayer = mockk<UniClipPlayer>(relaxed = true)
     private val mockClipA = mockk<UniClip>(relaxed = true)
     private val mockClipB = mockk<UniClip>(relaxed = true)
 
     @Before
     fun beforeEach() {
-        clearMocks(mockSemaphore, mockClipPlayer, mockClipA, mockClipB)
+        clearMocks(mockSemaphore, mockClipA, mockClipB)
     }
 
     @Test
     fun `it increments the semaphore by the cardinality of the subclip`() {
         val multiAudioClip = MultiClip(mockClipA, mockClipB)
 
-        multiAudioClip.play(mockSemaphore) { mockClipA }
+        multiAudioClip.playInForeground(mockSemaphore)
 
         verify { mockSemaphore.increment(2) }
     }
@@ -33,7 +32,7 @@ class MultiClipTest {
     fun `when clip starts it blocks on the semaphore`() {
         val multiAudioClip = MultiClip(mockClipA, mockClipB)
 
-        multiAudioClip.play(mockSemaphore) { mockClipA }
+        multiAudioClip.playInForeground(mockSemaphore)
 
         verify { mockSemaphore.block() }
     }
@@ -68,9 +67,9 @@ class MultiClipTest {
     fun `when clip starts it plays all the subclips in the background`() {
         val multiAudioClip = MultiClip(mockClipA, mockClipB)
 
-        multiAudioClip.playUsing { mockClipA }
+        multiAudioClip.playInForeground(mockSemaphore)
 
-        verify { mockClipA.playInBackground(mockClipA) }
-        verify { mockClipB.playInBackground(mockClipB) }
+        verify { mockClipA.playInBackground() }
+        verify { mockClipB.playInBackground() }
     }
 }

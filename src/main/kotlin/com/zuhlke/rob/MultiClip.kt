@@ -1,32 +1,25 @@
 package com.zuhlke.rob
 
-class MultiClip(private vararg val subclips: UniClip) : Clip<() -> UniClip> {
-    override fun cardinality(): Int = subclips.size
-
-    override fun playUsing(player: () -> UniClip) {
-        subclips.forEach { it.playInBackground(it) }
+class MultiClip(private vararg val subclips: UniClip) {
+    fun playInBackground() {
+        subclips.forEach { it.playInBackground() }
     }
 
-    override fun stop() {
-        subclips.forEach { it.stop() }
-    }
-
-    override fun isComplete(): Boolean {
-        return subclips.all { it.isComplete() }
-    }
-
-
-    fun play(mutex: Semaphore, uniClipPlayerProvider: () -> UniClip) {
-        mutex.increment(cardinality())
-        playUsing {
-            val singleClipPlayer = uniClipPlayerProvider.invoke()
-            singleClipPlayer.addStopAction { mutex.decrement(1) }
-            singleClipPlayer
+    fun playInForeground(mutex: Semaphore) {
+        mutex.increment(subclips.size)
+        subclips.forEach {
+            it.addStopAction { mutex.decrement(1) }
+            it.playInBackground()
         }
         mutex.block()
     }
 
-    fun playInBackground(uniClipPlayerProvider: () -> UniClip) {
-        playUsing(uniClipPlayerProvider)
+
+    fun stop() {
+        subclips.forEach { it.stop() }
+    }
+
+    fun isComplete(): Boolean {
+        return subclips.all { it.isComplete() }
     }
 }

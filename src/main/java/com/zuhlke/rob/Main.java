@@ -1,6 +1,5 @@
 package com.zuhlke.rob;
 
-import javax.sound.sampled.Clip;
 import javax.sound.sampled.*;
 import java.io.IOException;
 
@@ -11,7 +10,7 @@ public class Main {
         UniClip e = main.clip("ff3E");
         UniClip g = main.clip("ff3G");
         MultiClip cMajor = new MultiClip(c, e, g);
-        cMajor.play(Semaphore.primitiveSemaphore(), () -> new UniClip(null, null));
+        cMajor.playInForeground(Semaphore.primitiveSemaphore());
     }
 
     private UniClip clip(String noteSpecification) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
