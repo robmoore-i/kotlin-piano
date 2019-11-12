@@ -4,20 +4,20 @@ import javax.sound.sampled.AudioInputStream
 
 typealias RawClip = javax.sound.sampled.Clip
 
-interface SingleClip {
-    fun playUsing(singleClipPlayer: SingleClipPlayer)
+interface UniClip {
+    fun playUsing(uniClipPlayer: UniClipPlayer)
     fun stop()
     fun isComplete(): Boolean
 }
 
-class SingleAudioClip(private val audioInputStream: AudioInputStream, private val clip: RawClip) : SingleClip {
+class UniAudioClip(private val audioInputStream: AudioInputStream, private val clip: RawClip) : UniClip {
     private var complete: Boolean = false
 
-    override fun playUsing(singleClipPlayer: SingleClipPlayer) {
+    override fun playUsing(uniClipPlayer: UniClipPlayer) {
         if (complete) {
             throw RuntimeException("Clip is already completed")
         }
-        clip.addLineListener(singleClipPlayer)
+        clip.addLineListener(uniClipPlayer)
         clip.open(audioInputStream)
         clip.start()
     }

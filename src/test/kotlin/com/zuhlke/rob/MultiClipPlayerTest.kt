@@ -8,7 +8,7 @@ import org.junit.Test
 class MultiClipPlayerTest {
     private val mockMutliClip = mockk<MultiClip>(relaxed = true)
     private val mockSemaphore = mockk<Semaphore>(relaxed = true)
-    private val singleClipPlayer = mockk<SingleClipPlayer>(relaxed = true)
+    private val singleClipPlayer = mockk<UniClipPlayer>(relaxed = true)
 
     @Test
     fun `it increments the semaphore by the cardinality of the subclip`() {

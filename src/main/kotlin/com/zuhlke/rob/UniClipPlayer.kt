@@ -3,9 +3,9 @@ package com.zuhlke.rob
 import javax.sound.sampled.LineEvent
 import javax.sound.sampled.LineListener
 
-abstract class SingleClipPlayer : LineListener {
-    abstract fun play(clip: SingleClip, lock: Lock)
-    abstract fun playInBackground(clip: SingleClip)
+abstract class UniClipPlayer : LineListener {
+    abstract fun play(clip: UniClip, lock: Lock)
+    abstract fun playInBackground(clip: UniClip)
     abstract fun addStopAction(callback: () -> Unit)
     abstract fun onLineEvent(event: LineEvent)
 
@@ -16,9 +16,9 @@ abstract class SingleClipPlayer : LineListener {
     }
 }
 
-class FullSingleClipPlayer() : SingleClipPlayer() {
+class FullUniClipPlayer() : UniClipPlayer() {
     private val callbacks: MutableList<() -> Unit> = mutableListOf()
-    private lateinit var clip: SingleClip
+    private lateinit var clip: UniClip
     private lateinit var lock: Lock
 
     override fun addStopAction(callback: () -> Unit) {
@@ -31,13 +31,13 @@ class FullSingleClipPlayer() : SingleClipPlayer() {
         }
     }
 
-    override fun play(clip: SingleClip, lock: Lock) {
+    override fun play(clip: UniClip, lock: Lock) {
         this.lock = lock
         playInBackground(clip)
         lock.block { clip.isComplete() }
     }
 
-    override fun playInBackground(clip: SingleClip) {
+    override fun playInBackground(clip: UniClip) {
         this.clip = clip
         clip.playUsing(this)
     }

@@ -6,17 +6,17 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException, LineUnavailableException, UnsupportedAudioFileException {
         Main main = new Main();
-        MultiClipPlayer multiClipPlayer = new MultiClipPlayer(Semaphore.primitiveSemaphore(), FullSingleClipPlayer::new);
-        SingleAudioClip c = main.clip("ff3C");
-        SingleAudioClip e = main.clip("ff3E");
-        SingleAudioClip g = main.clip("ff3G");
+        MultiClipPlayer multiClipPlayer = new MultiClipPlayer(Semaphore.primitiveSemaphore(), FullUniClipPlayer::new);
+        UniAudioClip c = main.clip("ff3C");
+        UniAudioClip e = main.clip("ff3E");
+        UniAudioClip g = main.clip("ff3G");
         MultiAudioClip cMajor = new MultiAudioClip(c, e, g);
         multiClipPlayer.play(cMajor);
     }
 
-    private SingleAudioClip clip(String noteSpecification) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
+    private UniAudioClip clip(String noteSpecification) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
         AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getClass().getClassLoader().getResourceAsStream("iowa/" + noteSpecification + ".aiff"));
         Clip clip = (Clip) AudioSystem.getLine(new DataLine.Info(Clip.class, audioInputStream.getFormat()));
-        return new SingleAudioClip(audioInputStream, clip);
+        return new UniAudioClip(audioInputStream, clip);
     }
 }
