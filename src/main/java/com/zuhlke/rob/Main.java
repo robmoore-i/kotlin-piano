@@ -7,7 +7,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException, LineUnavailableException, UnsupportedAudioFileException {
         Main main = new Main();
-        MultiClipPlayer multiClipPlayer = new MultiClipPlayer(FullUniClipPlayer::new);
+        MultiClipPlayer multiClipPlayer = new MultiClipPlayer(UniClipPlayer::new);
         UniAudioClip c = main.clip("ff3C");
         UniAudioClip e = main.clip("ff3E");
         UniAudioClip g = main.clip("ff3G");

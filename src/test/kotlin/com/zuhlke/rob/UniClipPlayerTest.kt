@@ -22,19 +22,19 @@ class UniClipPlayerTest {
 
     @Test
     fun `when the clip stops it invokes the stop callbacks`() {
-        val clipPlayer = FullUniClipPlayer()
+        val clipPlayer = UniClipPlayer()
         val stopAction = mockk<() -> Unit>(relaxed = true)
 
         clipPlayer.addStopAction(stopAction)
         clipPlayer.play(mockClip, mockPlaybackLock)
-        clipPlayer.onLineEvent(lineEvent(STOP))
+        clipPlayer.update(lineEvent(STOP))
 
         verify { stopAction.invoke() }
     }
 
     @Test
     fun `starts sample when played using itself as the playback listener`() {
-        val clipPlayer = FullUniClipPlayer()
+        val clipPlayer = UniClipPlayer()
 
         clipPlayer.play(mockClip, mockPlaybackLock)
 
@@ -43,7 +43,7 @@ class UniClipPlayerTest {
 
     @Test
     fun `stops sample when stopped`() {
-        val clipPlayer = FullUniClipPlayer()
+        val clipPlayer = UniClipPlayer()
 
         clipPlayer.play(mockClip, mockPlaybackLock)
         clipPlayer.update(lineEvent(STOP))
@@ -52,17 +52,8 @@ class UniClipPlayerTest {
     }
 
     @Test
-    fun `when updated with a null event it does nothing`() {
-        val clipPlayer = FullUniClipPlayer()
-
-        clipPlayer.update(null)
-
-        verify(exactly = 0) { mockPlaybackLock.release() }
-    }
-
-    @Test
     fun `when updated with a start event it does nothing`() {
-        val clipPlayer = FullUniClipPlayer()
+        val clipPlayer = UniClipPlayer()
 
         clipPlayer.update(lineEvent(START))
 
@@ -71,7 +62,7 @@ class UniClipPlayerTest {
 
     @Test
     fun `when updated with stop event it releases the playback lock`() {
-        val clipPlayer = FullUniClipPlayer()
+        val clipPlayer = UniClipPlayer()
 
         clipPlayer.play(mockClip, mockPlaybackLock)
         clipPlayer.update(lineEvent(STOP))
@@ -81,7 +72,7 @@ class UniClipPlayerTest {
 
     @Test
     fun `when the clip starts it blocks on the playback lock`() {
-        val clipPlayer = FullUniClipPlayer()
+        val clipPlayer = UniClipPlayer()
 
         clipPlayer.play(mockClip, mockPlaybackLock)
 
