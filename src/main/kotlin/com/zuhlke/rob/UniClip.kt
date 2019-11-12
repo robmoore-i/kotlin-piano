@@ -15,8 +15,8 @@ class UniClip(private val audioInputStream: AudioInputStream, private val clip: 
     }
 
     fun playInForeground(lock: Lock) {
-        play()
         addStopAction { lock.release() }
+        play()
         lock.block { this.isComplete() }
     }
 
