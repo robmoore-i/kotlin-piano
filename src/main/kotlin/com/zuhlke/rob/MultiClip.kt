@@ -14,12 +14,11 @@ class MultiClip(private vararg val subclips: UniClip) : Clip<() -> UniClipPlayer
     override fun isComplete(): Boolean {
         return subclips.all { it.isComplete() }
     }
-}
 
-class MultiClipPlayer(private val uniClipPlayerProvider: () -> UniClipPlayer) : ClipPlayer<MultiClip, Semaphore> {
-    override fun play(clip: MultiClip, mutex: Semaphore) {
-        mutex.increment(clip.cardinality())
-        clip.playUsing {
+
+    fun play(mutex: Semaphore, uniClipPlayerProvider: () -> UniClipPlayer) {
+        mutex.increment(cardinality())
+        playUsing {
             val singleClipPlayer = uniClipPlayerProvider.invoke()
             singleClipPlayer.addStopAction { mutex.decrement(1) }
             singleClipPlayer
@@ -27,7 +26,7 @@ class MultiClipPlayer(private val uniClipPlayerProvider: () -> UniClipPlayer) : 
         mutex.block()
     }
 
-    override fun playInBackground(clip: MultiClip) {
-        clip.playUsing(uniClipPlayerProvider)
+    fun playInBackground(uniClipPlayerProvider: () -> UniClipPlayer) {
+        playUsing(uniClipPlayerProvider)
     }
 }

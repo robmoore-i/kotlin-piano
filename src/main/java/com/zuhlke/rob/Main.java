@@ -7,12 +7,11 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException, LineUnavailableException, UnsupportedAudioFileException {
         Main main = new Main();
-        MultiClipPlayer multiClipPlayer = new MultiClipPlayer(UniClipPlayer::new);
         UniClip c = main.clip("ff3C");
         UniClip e = main.clip("ff3E");
         UniClip g = main.clip("ff3G");
         MultiClip cMajor = new MultiClip(c, e, g);
-        multiClipPlayer.play(cMajor, Semaphore.primitiveSemaphore());
+        cMajor.play(Semaphore.primitiveSemaphore(), UniClipPlayer::new);
     }
 
     private UniClip clip(String noteSpecification) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
