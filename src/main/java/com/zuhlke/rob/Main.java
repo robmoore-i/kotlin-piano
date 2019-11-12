@@ -6,7 +6,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException, LineUnavailableException, UnsupportedAudioFileException {
         Main main = new Main();
-        MultiClipPlayer multiClipPlayer = new MultiClipPlayer(Semaphore.primitiveSemaphore(), () -> new FullSingleClipPlayer(Lock.primitiveLock()));
+        MultiClipPlayer multiClipPlayer = new MultiClipPlayer(Semaphore.primitiveSemaphore(), FullSingleClipPlayer::new);
         SingleAudioClip c = main.clip("ff3C");
         SingleAudioClip e = main.clip("ff3E");
         SingleAudioClip g = main.clip("ff3G");
