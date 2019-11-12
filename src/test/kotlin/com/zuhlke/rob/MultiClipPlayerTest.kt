@@ -13,7 +13,7 @@ class MultiClipPlayerTest {
     @Test
     fun `it increments the semaphore by the cardinality of the subclip`() {
         val cardinality = 5
-        every { mockMutliClip.cardinality } returns cardinality
+        every { mockMutliClip.cardinality() } returns cardinality
         val fullMultiClipPlayer = MultiClipPlayer { singleClipPlayer }
 
         fullMultiClipPlayer.play(mockMutliClip, mockSemaphore)
