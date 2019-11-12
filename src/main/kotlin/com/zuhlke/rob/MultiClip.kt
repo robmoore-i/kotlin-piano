@@ -1,8 +1,6 @@
 package com.zuhlke.rob
 
-interface MultiClip : Clip<() -> UniClipPlayer>
-
-class MultiAudioClip(private vararg val subclips: UniClip) : MultiClip {
+class MultiClip(private vararg val subclips: UniClip) : Clip<() -> UniClipPlayer> {
     override fun cardinality(): Int = subclips.size
 
     override fun playUsing(player: () -> UniClipPlayer) {

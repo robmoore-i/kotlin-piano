@@ -9,7 +9,7 @@ import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 
-class MultiAudioClipTest {
+class MultiClipTest {
     private val mockSemaphore = mockk<Semaphore>(relaxed = true)
     private val mockClipPlayer = mockk<UniClipPlayer>(relaxed = true)
     private val mockClipA = mockk<UniClip>(relaxed = true)
@@ -24,21 +24,21 @@ class MultiAudioClipTest {
     fun `it is complete when all the subclips are complete`() {
         every { mockClipA.isComplete() } returns true
         every { mockClipB.isComplete() } returns true
-        val multiAudioClip = MultiAudioClip(mockClipA, mockClipB)
+        val multiAudioClip = MultiClip(mockClipA, mockClipB)
 
         assertTrue(multiAudioClip.isComplete())
     }
 
     @Test
     fun `it is initially incomplete`() {
-        val multiAudioClip = MultiAudioClip(mockClipA, mockClipB)
+        val multiAudioClip = MultiClip(mockClipA, mockClipB)
 
         assertFalse(multiAudioClip.isComplete())
     }
 
     @Test
     fun `when clip stops it stops all the subclips`() {
-        val multiAudioClip = MultiAudioClip(mockClipA, mockClipB)
+        val multiAudioClip = MultiClip(mockClipA, mockClipB)
 
         multiAudioClip.stop()
 
@@ -48,7 +48,7 @@ class MultiAudioClipTest {
 
     @Test
     fun `when clip starts it plays all the subclips in the background`() {
-        val multiAudioClip = MultiAudioClip(mockClipA, mockClipB)
+        val multiAudioClip = MultiClip(mockClipA, mockClipB)
 
         multiAudioClip.playUsing { mockClipPlayer }
 

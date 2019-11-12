@@ -4,12 +4,10 @@ import javax.sound.sampled.AudioInputStream
 
 typealias RawClip = javax.sound.sampled.Clip
 
-interface UniClip : Clip<UniClipPlayer> {
-    override fun cardinality() = 1
-}
-
-class UniAudioClip(private val audioInputStream: AudioInputStream, private val clip: RawClip) : UniClip {
+class UniClip(private val audioInputStream: AudioInputStream, private val clip: RawClip) : Clip<UniClipPlayer> {
     private var complete: Boolean = false
+
+    override fun cardinality() = 1
 
     override fun playUsing(player: UniClipPlayer) {
         if (complete) {
