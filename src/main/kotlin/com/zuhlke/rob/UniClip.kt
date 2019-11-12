@@ -7,7 +7,6 @@ import javax.sound.sampled.LineListener
 typealias RawClip = javax.sound.sampled.Clip
 
 class UniClip(private val audioInputStream: AudioInputStream, private val clip: RawClip) : LineListener {
-    private lateinit var lock: Lock
     private var complete: Boolean = false
     private val callbacks: MutableList<() -> Unit> = mutableListOf()
 
@@ -16,8 +15,8 @@ class UniClip(private val audioInputStream: AudioInputStream, private val clip: 
     }
 
     fun playInForeground(lock: Lock) {
-        this.lock = lock
         play()
+        addStopAction { lock.release() }
         lock.block { this.isComplete() }
     }
 
@@ -40,7 +39,6 @@ class UniClip(private val audioInputStream: AudioInputStream, private val clip: 
         audioInputStream.close()
         complete = true
         callbacks.forEach { it.invoke() }
-        lock.release()
     }
 
     private fun play() {

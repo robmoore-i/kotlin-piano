@@ -64,7 +64,7 @@ class UniClipTest {
     }
 
     @Test
-    fun `when updated with stop event it releases the playback lock`() {
+    fun `after starting in the foreground, when updated with stop event, it releases the lock`() {
         val clip = UniClip(mockAudioInputStream, mockRawClip)
 
         clip.playInForeground(mockLock)
@@ -74,7 +74,7 @@ class UniClipTest {
     }
 
     @Test
-    fun `when the clip starts it blocks on the playback lock`() {
+    fun `when the clip starts in the foreground it blocks on the lock`() {
         val clip = UniClip(mockAudioInputStream, mockRawClip)
 
         clip.playInForeground(mockLock)
