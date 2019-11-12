@@ -6,14 +6,14 @@ import javax.sound.sampled.LineListener
 
 typealias RawClip = javax.sound.sampled.Clip
 
-class UniClip(private val audioInputStream: AudioInputStream, private val clip: RawClip) : Clip<UniClipPlayer>, LineListener {
+class UniClip(private val audioInputStream: AudioInputStream, private val clip: RawClip) : Clip<UniClip>, LineListener {
     private lateinit var lock: Lock
     private var complete: Boolean = false
     private val callbacks: MutableList<() -> Unit> = mutableListOf()
 
     override fun cardinality() = 1
 
-    override fun playUsing(player: UniClipPlayer) {
+    override fun playUsing(player: UniClip) {
         if (complete) {
             throw RuntimeException("Clip is already completed")
         }
@@ -40,11 +40,11 @@ class UniClip(private val audioInputStream: AudioInputStream, private val clip: 
         }
     }
 
-    fun playInBackground(player: UniClipPlayer) {
+    fun playInBackground(player: UniClip) {
         playUsing(player)
     }
 
-    fun play(lock: Lock, player: UniClipPlayer) {
+    fun play(lock: Lock, player: UniClip) {
         this.lock = lock
         playUsing(player)
         lock.block { this.isComplete() }

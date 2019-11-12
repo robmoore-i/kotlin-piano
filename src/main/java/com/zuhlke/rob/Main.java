@@ -11,7 +11,7 @@ public class Main {
         UniClip e = main.clip("ff3E");
         UniClip g = main.clip("ff3G");
         MultiClip cMajor = new MultiClip(c, e, g);
-        cMajor.play(Semaphore.primitiveSemaphore(), UniClipPlayer::new);
+        cMajor.play(Semaphore.primitiveSemaphore(), () -> new UniClip(null, null));
     }
 
     private UniClip clip(String noteSpecification) throws IOException, UnsupportedAudioFileException, LineUnavailableException {

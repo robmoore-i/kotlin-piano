@@ -1,10 +1,10 @@
 package com.zuhlke.rob
 
-class MultiClip(private vararg val subclips: UniClip) : Clip<() -> UniClipPlayer> {
+class MultiClip(private vararg val subclips: UniClip) : Clip<() -> UniClip> {
     override fun cardinality(): Int = subclips.size
 
-    override fun playUsing(player: () -> UniClipPlayer) {
-        subclips.forEach { it.playInBackground(player.invoke()) }
+    override fun playUsing(player: () -> UniClip) {
+        subclips.forEach { it.playInBackground(it) }
     }
 
     override fun stop() {
@@ -16,7 +16,7 @@ class MultiClip(private vararg val subclips: UniClip) : Clip<() -> UniClipPlayer
     }
 
 
-    fun play(mutex: Semaphore, uniClipPlayerProvider: () -> UniClipPlayer) {
+    fun play(mutex: Semaphore, uniClipPlayerProvider: () -> UniClip) {
         mutex.increment(cardinality())
         playUsing {
             val singleClipPlayer = uniClipPlayerProvider.invoke()
@@ -26,7 +26,7 @@ class MultiClip(private vararg val subclips: UniClip) : Clip<() -> UniClipPlayer
         mutex.block()
     }
 
-    fun playInBackground(uniClipPlayerProvider: () -> UniClipPlayer) {
+    fun playInBackground(uniClipPlayerProvider: () -> UniClip) {
         playUsing(uniClipPlayerProvider)
     }
 }

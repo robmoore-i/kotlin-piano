@@ -24,7 +24,7 @@ class MultiClipTest {
     fun `it increments the semaphore by the cardinality of the subclip`() {
         val multiAudioClip = MultiClip(mockClipA, mockClipB)
 
-        multiAudioClip.play(mockSemaphore) { mockClipPlayer }
+        multiAudioClip.play(mockSemaphore) { mockClipA }
 
         verify { mockSemaphore.increment(2) }
     }
@@ -33,7 +33,7 @@ class MultiClipTest {
     fun `when clip starts it blocks on the semaphore`() {
         val multiAudioClip = MultiClip(mockClipA, mockClipB)
 
-        multiAudioClip.play(mockSemaphore) { mockClipPlayer }
+        multiAudioClip.play(mockSemaphore) { mockClipA }
 
         verify { mockSemaphore.block() }
     }
@@ -68,9 +68,9 @@ class MultiClipTest {
     fun `when clip starts it plays all the subclips in the background`() {
         val multiAudioClip = MultiClip(mockClipA, mockClipB)
 
-        multiAudioClip.playUsing { mockClipPlayer }
+        multiAudioClip.playUsing { mockClipA }
 
-        verify { mockClipA.playInBackground(mockClipPlayer) }
-        verify { mockClipB.playInBackground(mockClipPlayer) }
+        verify { mockClipA.playInBackground(mockClipA) }
+        verify { mockClipB.playInBackground(mockClipB) }
     }
 }
