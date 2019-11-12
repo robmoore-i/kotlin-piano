@@ -37,8 +37,8 @@ class UniClip(private val audioInputStream: AudioInputStream, private val clip: 
     fun stop() {
         clip.close()
         audioInputStream.close()
-        complete = true
         callbacks.forEach { it.invoke() }
+        complete = true
     }
 
     private fun play() {
