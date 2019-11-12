@@ -11,7 +11,7 @@ import javax.sound.sampled.LineEvent.Type
 import javax.sound.sampled.LineEvent.Type.START
 import javax.sound.sampled.LineEvent.Type.STOP
 
-class FullUniClipPlayerTest {
+class UniClipPlayerTest {
     private val mockPlaybackLock = mockk<Lock>(relaxed = true)
     private val mockClip = mockk<UniClip>(relaxed = true)
 

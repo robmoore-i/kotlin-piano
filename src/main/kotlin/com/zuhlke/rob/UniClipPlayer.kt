@@ -16,7 +16,7 @@ abstract class UniClipPlayer : LineListener {
     }
 }
 
-class FullUniClipPlayer() : UniClipPlayer() {
+class FullUniClipPlayer : UniClipPlayer() {
     private val callbacks: MutableList<() -> Unit> = mutableListOf()
     private lateinit var clip: UniClip
     private lateinit var lock: Lock
