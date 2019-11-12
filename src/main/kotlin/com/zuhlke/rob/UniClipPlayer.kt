@@ -8,12 +8,6 @@ class UniClipPlayer : LineListener, ClipPlayer<UniClip, Lock> {
     private lateinit var clip: UniClip
     private lateinit var lock: Lock
 
-    override fun update(event: LineEvent) {
-        if (event.type == LineEvent.Type.STOP) {
-            onStop()
-        }
-    }
-
     override fun play(clip: UniClip, mutex: Lock) {
         this.lock = mutex
         playInBackground(clip)
@@ -23,6 +17,12 @@ class UniClipPlayer : LineListener, ClipPlayer<UniClip, Lock> {
     override fun playInBackground(clip: UniClip) {
         this.clip = clip
         clip.playUsing(this)
+    }
+
+    override fun update(event: LineEvent) {
+        if (event.type == LineEvent.Type.STOP) {
+            onStop()
+        }
     }
 
     fun addStopAction(callback: () -> Unit) {
